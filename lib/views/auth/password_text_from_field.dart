@@ -4,7 +4,8 @@ import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 
 class PasswordTextFormField extends StatefulWidget {
-  const PasswordTextFormField({Key? key}) : super(key: key);
+  const PasswordTextFormField({Key? key, this.onSaved}) : super(key: key);
+  final void Function(String?)? onSaved;
 
   @override
   _PasswordTextFormFieldState createState() => _PasswordTextFormFieldState();
@@ -17,6 +18,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onSaved: widget.onSaved ,
       keyboardType: TextInputType.visiblePassword,
       obscureText: _obscureText,
       decoration: InputDecoration(
