@@ -15,12 +15,12 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Form(
-          key: _formKey,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
+              Text('dsadas'),
                Text('login'.tr(),
               style:const TextStyle(
                 fontSize: 50.0,
@@ -30,39 +30,44 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 40.0,
               ),
-              TextFormField(
-                onSaved:(value) => _email = value,
-                keyboardType: TextInputType.emailAddress,
-                decoration:  InputDecoration(
-                  labelText: 'email'.tr(),
-                  prefixIcon:const Icon(Icons.email) ,
-                  border: const OutlineInputBorder(),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      onSaved:(value) => _email = value,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration:  InputDecoration(
+                        labelText: 'email'.tr(),
+                        prefixIcon: const Icon(Icons.email) ,
+                        border: const OutlineInputBorder(),
+                      ),
+                      validator: qValidator([
+                        IsRequired(),
+                      ]),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    PasswordTextFormField(onSaved:(value) => _password = value),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                  ],
                 ),
-                validator: qValidator([
-                  const IsRequired(),
-                ]),
               ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              PasswordTextFormField( onSaved:(value) => _password = value),
-              const SizedBox(
-                height: 20.0,
-              ),
-              Container(
+              SizedBox(
                 width: double.infinity,
-                // color: Colors.indigo,
                 height: 40.0,
                 child: ElevatedButton(onPressed: () {
                   if(_formKey.currentState!.validate()){
-                    _formKey.currentState!.save(); }
+                    _formKey.currentState!.save();
+                  }
                   print(_email);
                   print(_password);
-
                 },
-                  child:  Text ('login'.tr(),
-                  style:const TextStyle(color:Colors.white,) ),
-
+                  child: Text('login'.tr(),
+                  style: const TextStyle(color:Colors.white,) ),
                 ),
               ),
               const SizedBox(
@@ -74,13 +79,9 @@ class LoginScreen extends StatelessWidget {
                   TextButton(
                     onPressed: (){},
                     child:Text ('Regester now'),
-
-
                   ),
-
                 ],
               ),
-
             ],
           ),
         ),
