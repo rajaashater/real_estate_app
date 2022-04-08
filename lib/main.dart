@@ -1,10 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_theme.dart';
 import 'package:real_estate_app/views/auth/login_screen.dart';
-
-import 'views/home_screen.dart';
 
 Future<void> main ()
 async {
@@ -23,7 +20,7 @@ class RealEstate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: AppTheme.lightTheme,
+      theme: AppTheme.lightTheme.copyWith(colorScheme: AppTheme.lightTheme.colorScheme.copyWith(secondary: Colors.green)),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
