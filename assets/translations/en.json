@@ -1,10 +1,26 @@
 {
   "damascus" : "Damascus",
   "login" : "Login",
+  "log out": "Log Out",
   "email" : "Email",
   "home" : "Home",
   "my reals" : "My Reals",
-  "passWord" : "Password"
-
+  "passWord" : "Password",
+  "menu": "Menu",
+  "setting": "Setting",
+  "search": "Search",
+  "buy": "Buy",
+  "sale": "Sale",
+  "rent": "Rent",
+  "details": "Details",
+  "favorite": "Favorite",
+  "contact": "Contact",
+  "house": "House",
+  "market":"Market",
+  "land": "Land",
+  "bathroom": "Bathroom",
+  "bedroom": "Bedroom",
+  "space": "Space",
+  "price": "Price"
 
 }
