@@ -21,5 +21,8 @@
   "bathroom": "حمام",
   "bedroom": "غرفة نوم",
   "space": "المساحة",
-  "price": "السعر"
+  "price": "السعر",
+  "welcome":"أهلاً وسهلا",
+  "sign up": "تسجيل دخول",
+  "creat your account":"قم يإنشاء حسابك"
 }

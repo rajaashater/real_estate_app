@@ -21,6 +21,9 @@
   "bathroom": "Bathroom",
   "bedroom": "Bedroom",
   "space": "Space",
-  "price": "Price"
+  "price": "Price",
+  "welcome":"Welcome",
+  "sign up": "Sign Up",
+  "creat your account":"Creat Your Account"
 
 }

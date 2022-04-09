@@ -2,7 +2,10 @@
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
+import 'package:real_estate_app/utils/theme/app_theme.dart';
 import 'package:real_estate_app/views/auth/password_text_from_field.dart';
+
+import '../../utils/theme/app_colors.dart';
 
 class LoginScreen extends StatelessWidget {
 
@@ -14,18 +17,30 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar:AppBar() ,
+
+      backgroundColor:AppColors.primary ,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Text('dsadas'),
-               Text('login'.tr(),
-              style:const TextStyle(
-                fontSize: 50.0,
-                fontWeight: FontWeight.bold,
+              Image.asset('assets/images/logo.png'),
+              const SizedBox(
+                height: 10.0,
               ),
+               Text('Key In Click',
+               style:Theme.of(context).textTheme.headline1
+               ),
+
+              const SizedBox(
+                height: 40.0,
+              ),
+               Text('login'.tr(),
+                   style:Theme.of(context).textTheme.headline2
+               ),
+              Text('welcome'.tr(),
+                  style:Theme.of(context).textTheme.headline3
               ),
               const SizedBox(
                 height: 40.0,
@@ -40,7 +55,9 @@ class LoginScreen extends StatelessWidget {
                       decoration:  InputDecoration(
                         labelText: 'email'.tr(),
                         prefixIcon: const Icon(Icons.email) ,
-                        border: const OutlineInputBorder(),
+                        prefixIconColor: Theme.of(context).iconTheme.color,
+                        border: Theme.of(context).inputDecorationTheme. border,
+                        //border: const OutlineInputBorder(),
                       ),
                       validator: qValidator([
                         IsRequired(),
