@@ -33,6 +33,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       ),
       validator: qValidator([
         IsRequired(),
+
       ]),
     );
   }

@@ -74,8 +74,10 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: double.infinity,
-                height: 40.0,
+
+                width:125.0,
+                height: 35.0,
+
                 child: ElevatedButton(onPressed: () {
                   if(_formKey.currentState!.validate()){
                     _formKey.currentState!.save();
@@ -84,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                   print(_password);
                 },
                   child: Text('login'.tr(),
-                  style: const TextStyle(color:Colors.white,) ),
+                      style:Theme.of(context).textTheme.headline3 ),
                 ),
               ),
               const SizedBox(
