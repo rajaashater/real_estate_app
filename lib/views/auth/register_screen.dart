@@ -60,9 +60,6 @@ class RegisterScreen extends StatelessWidget {
                       decoration:  InputDecoration(
                         labelText: 'name'.tr(),
                         prefixIcon: const Icon(Icons.person) ,
-                        prefixIconColor: Theme.of(context).iconTheme.color,
-                        border: Theme.of(context).inputDecorationTheme. border,
-                        //border: const OutlineInputBorder(),
                       ),
                       validator: qValidator([
                         IsRequired(),
@@ -77,9 +74,6 @@ class RegisterScreen extends StatelessWidget {
                       decoration:  InputDecoration(
                         labelText: 'last name'.tr(),
                         prefixIcon: const Icon(Icons.person) ,
-                        prefixIconColor: Theme.of(context).iconTheme.color,
-                        border: Theme.of(context).inputDecorationTheme. border,
-                        //border: const OutlineInputBorder(),
                       ),
                       validator: qValidator([
                         IsRequired(),
@@ -94,13 +88,10 @@ class RegisterScreen extends StatelessWidget {
                       decoration:  InputDecoration(
                         labelText: 'email'.tr(),
                         prefixIcon: const Icon(Icons.email) ,
-                        prefixIconColor: Theme.of(context).iconTheme.color,
-                        //border: Theme.of(context).inputDecorationTheme. border,
-                        //border: const OutlineInputBorder(),
                       ),
                       validator: qValidator([
                         IsRequired(),
-                        IsEmail(),
+                        const IsEmail(),
                       ]),
                     ),
                     const SizedBox(
@@ -112,9 +103,6 @@ class RegisterScreen extends StatelessWidget {
                       decoration:  InputDecoration(
                         labelText: 'name'.tr(),
                         prefixIcon: const Icon(Icons.phone) ,
-                        prefixIconColor: Theme.of(context).iconTheme.color,
-                        border: Theme.of(context).inputDecorationTheme. border,
-                        //border: const OutlineInputBorder(),
                       ),
                       validator: qValidator([
                         IsRequired(),
@@ -146,14 +134,12 @@ class RegisterScreen extends StatelessWidget {
               ),
               const SizedBox(
                 height: 20.0,
-
               ),
                   const Text('already have account?'),
                   TextButton(
                     onPressed: (){},
                     child:const Text ('login'),
                   ),
-
             ],
           ),
         ),

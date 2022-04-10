@@ -24,16 +24,12 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       decoration: InputDecoration(
         labelText: 'password'.tr(),
         prefixIcon: const Icon(Icons.lock) ,
-        prefixIconColor:Theme.of(context).iconTheme.color,
         suffixIcon: IconButton(icon: Icon(Icons.remove_red_eye, color: _obscureText == false ? AppColors.primary : Colors.grey,), onPressed: () => setState(() {
           _obscureText = !_obscureText;
         })),
-        border: Theme.of(context).inputDecorationTheme. border,
-        //border: const OutlineInputBorder(),
       ),
       validator: qValidator([
         IsRequired(),
-
       ]),
     );
   }

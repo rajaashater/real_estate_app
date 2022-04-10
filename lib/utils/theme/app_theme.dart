@@ -12,19 +12,16 @@ abstract class AppTheme {
         fontWeight: FontWeight.normal,
         color:Colors.white,
         ),
-
       headline2: TextStyle(
           fontSize: 57.0,
           fontWeight: FontWeight.normal,
           color:AppColors.secondary,
           ),
-
       headline3: TextStyle(
           fontSize: 30.0,
           fontWeight: FontWeight.normal,
           color:Colors.white,
          ),
-
       headline4: TextStyle(
         fontSize: 18.0,
         fontWeight: FontWeight.normal,
@@ -34,17 +31,23 @@ abstract class AppTheme {
         color:Colors.white,
       ),
     ),
-
-
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(AppColors.secondary),
+        shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)))
+      )
+    ),
+    textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(foregroundColor: MaterialStateProperty.all(Colors.white))
+    ),
     iconTheme: const IconThemeData(
         color:AppColors.secondary),
-    //prefixIconTheme: PrefixIconThemeData(color: AppColors.secondary ),
-
-
-
     inputDecorationTheme: InputDecorationTheme(
       iconColor: AppColors.secondary,
       labelStyle: const TextStyle(color: Colors.white),
+      border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
+          borderRadius: BorderRadius.circular(24)),
       enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.white),
           borderRadius: BorderRadius.circular(24)),
@@ -55,7 +58,6 @@ abstract class AppTheme {
           borderSide: BorderSide(color: Theme.of(context).colorScheme.error),
           borderRadius: BorderRadius.circular(24)),
     ),
-
   );
   //textTheme: TextStyle(
   //fontFamily: 'TwCenClassMTStd-Regular.otf');
