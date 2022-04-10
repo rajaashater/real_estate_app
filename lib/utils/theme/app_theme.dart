@@ -5,7 +5,7 @@ abstract class AppTheme {
   static ThemeData darkTheme = ThemeData(
     primarySwatch: AppUtils.createMaterialColor(AppColors.primary),
     secondaryHeaderColor: AppUtils.createMaterialColor(AppColors.secondary),
-    fontFamily:'TwCenClassMTStd-Regular',
+    fontFamily:'TwCenClassMTStd',
     textTheme: const TextTheme(
       headline1: TextStyle(
         fontSize: 24.0,
@@ -23,7 +23,14 @@ abstract class AppTheme {
           fontSize: 30.0,
           fontWeight: FontWeight.normal,
           color:Colors.white,
-         ),),
+         ),
+
+      headline4: TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.normal,
+        color:Colors.white,
+      ),),
+
 
     iconTheme: const IconThemeData(
         color:AppColors.secondary),

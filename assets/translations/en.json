@@ -24,6 +24,9 @@
   "price": "Price",
   "welcome":"Welcome",
   "sign up": "Sign Up",
-  "creat your account":"Creat Your Account"
+  "create your account":"Create Your Account",
+  "name": "Name",
+  "last name": "Last Name",
+  "phone":"Phone"
 
 }

@@ -34,7 +34,7 @@ class RegisterScreen extends StatelessWidget {
                 height: 10.0,
               ),
               Text('Key In Click',
-                  style:Theme.of(context).textTheme.headline1
+                  style:Theme.of(context).textTheme.headline4
               ),
 
               const SizedBox(
@@ -43,7 +43,7 @@ class RegisterScreen extends StatelessWidget {
               Text('sign up'.tr(),
                   style:Theme.of(context).textTheme.headline2
               ),
-              Text('creat your account'.tr(),
+              Text('create your account'.tr(),
                   style:Theme.of(context).textTheme.headline3
               ),
               const SizedBox(
@@ -133,19 +133,21 @@ class RegisterScreen extends StatelessWidget {
               SizedBox(
                   width:125.0,
                   height: 35.0,
-                child: ElevatedButton(onPressed: () {
+                child: ElevatedButton(
+                  onPressed: () {
                   if(_formKey.currentState!.validate()){
                     _formKey.currentState!.save();
                   }
                 },
                   child: Text('sign up'.tr(),
-                      style:Theme.of(context).textTheme.headline3 ),
+                      style:Theme.of(context).textTheme.headline4),
                 ),
               ),
               const SizedBox(
                 height: 20.0,
+
               ),
-                  const Text('already have account'),
+                  const Text('already have account?'),
                   TextButton(
                     onPressed: (){},
                     child:const Text ('login'),

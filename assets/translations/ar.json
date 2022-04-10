@@ -24,5 +24,8 @@
   "price": "السعر",
   "welcome":"أهلاً وسهلا",
   "sign up": "تسجيل دخول",
-  "creat your account":"قم يإنشاء حسابك"
+  "create your account":"قم يإنشاء حسابك",
+  "name": "الاسم",
+  "last name": "الكنية",
+  "phone": "الهاتف"
 }
