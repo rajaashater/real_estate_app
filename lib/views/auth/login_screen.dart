@@ -56,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                         labelText: 'email'.tr(),
                         prefixIcon: const Icon(Icons.email) ,
                         prefixIconColor: Theme.of(context).iconTheme.color,
-                        border: Theme.of(context).inputDecorationTheme. border,
+                        //border: Theme.of(context).inputDecorationTheme. border,
                         //border: const OutlineInputBorder(),
                       ),
                       validator: qValidator([
