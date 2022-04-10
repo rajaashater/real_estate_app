@@ -22,7 +22,7 @@ class RealEstate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: AppTheme.darkTheme.copyWith(colorScheme: AppTheme.darkTheme.colorScheme.copyWith(secondary: AppColors.secondary)),
+      theme: AppTheme.lightTheme(context).copyWith(colorScheme: AppTheme.lightTheme(context).colorScheme.copyWith(secondary: AppColors.secondary)),
       debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
