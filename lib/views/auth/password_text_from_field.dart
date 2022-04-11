@@ -4,8 +4,9 @@ import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class PasswordTextFormField extends StatefulWidget {
-  const PasswordTextFormField({Key? key, this.onSaved}) : super(key: key);
+  const PasswordTextFormField({Key? key, this.onSaved, this.validator}) : super(key: key);
   final void Function(String?)? onSaved;
+  final String? Function(String?)? validator;
 
   @override
   _PasswordTextFormFieldState createState() => _PasswordTextFormFieldState();
@@ -24,13 +25,11 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       decoration: InputDecoration(
         labelText: 'password'.tr(),
         prefixIcon: const Icon(Icons.lock) ,
-        suffixIcon: IconButton(icon: Icon(Icons.remove_red_eye, color: _obscureText == false ? AppColors.primary : Colors.grey,), onPressed: () => setState(() {
+        suffixIcon: IconButton(icon: Icon(Icons.remove_red_eye, color: _obscureText == false ? AppColors.secondary : Colors.white,), onPressed: () => setState(() {
           _obscureText = !_obscureText;
         })),
       ),
-      validator: qValidator([
-        IsRequired(),
-      ]),
+      validator: widget.validator,
     );
   }
 }

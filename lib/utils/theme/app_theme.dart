@@ -8,25 +8,21 @@ abstract class AppTheme {
     textSelectionTheme: TextSelectionThemeData(cursorColor: AppColors.secondary, selectionColor: AppColors.secondary, selectionHandleColor: AppColors.secondary.withOpacity(0.6)),
     textTheme: const TextTheme(
       headline1: TextStyle(
-        fontSize: 24.0,
+        fontSize: 15.0,
         fontWeight: FontWeight.normal,
         color:Colors.white,
         ),
       headline2: TextStyle(
-          fontSize: 57.0,
+          fontSize: 45.0,
           fontWeight: FontWeight.normal,
           color:AppColors.secondary,
           ),
       headline3: TextStyle(
-          fontSize: 30.0,
+          fontSize: 25.0,
           fontWeight: FontWeight.normal,
           color:Colors.white,
          ),
-      headline4: TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.normal,
-        color:Colors.white,
-      ),
+
       subtitle1: TextStyle(
         color:Colors.white,
       ),

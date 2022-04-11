@@ -27,6 +27,9 @@
   "create your account":"Create Your Account",
   "name": "Name",
   "last name": "Last Name",
-  "phone":"Phone"
+  "phone":"Phone",
+  "don't have an account ?": "Don't have an account ?",
+  "regester now": "Regester now"
+
 
 }

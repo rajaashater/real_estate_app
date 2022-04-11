@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar() ,
+      appBar:AppBar(elevation: 0.0,) ,
 
       backgroundColor:AppColors.primary ,
       body: SingleChildScrollView(
@@ -55,9 +55,6 @@ class LoginScreen extends StatelessWidget {
                       decoration:  InputDecoration(
                         labelText: 'email'.tr(),
                         prefixIcon: const Icon(Icons.email) ,
-                        prefixIconColor: Theme.of(context).iconTheme.color,
-                        //border: Theme.of(context).inputDecorationTheme. border,
-                        //border: const OutlineInputBorder(),
                       ),
                       validator: qValidator([
                         IsRequired(),
@@ -66,7 +63,12 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    PasswordTextFormField(onSaved:(value) => _password = value),
+                    PasswordTextFormField(
+                      onSaved:(value) => _password = value,
+                      validator: qValidator([
+                        IsRequired(),
+                  ]),
+              ),
                     const SizedBox(
                       height: 20.0,
                     ),
@@ -86,7 +88,7 @@ class LoginScreen extends StatelessWidget {
                   print(_password);
                 },
                   child: Text('login'.tr(),
-                      style:Theme.of(context).textTheme.headline3 ),
+                      style:Theme.of(context).textTheme.headline1 ),
                 ),
               ),
               const SizedBox(
@@ -94,10 +96,10 @@ class LoginScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Text('Don\'t have an account ?',),
+                   Text('Don\'t have an account ?'.tr(),style:Theme.of(context).textTheme.headline1),
                   TextButton(
                     onPressed: (){},
-                    child:Text ('Regester now'),
+                    child:Text ('Regester now'.tr()),
                   ),
                 ],
               ),

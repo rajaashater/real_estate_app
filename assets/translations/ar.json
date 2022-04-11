@@ -27,5 +27,8 @@
   "create your account":"قم يإنشاء حسابك",
   "name": "الاسم",
   "last name": "الكنية",
-  "phone": "الهاتف"
+  "phone": "الهاتف",
+  "don't have an account ?": "ليس لديك حساب؟",
+  "regester now": "سجل الان"
+
 }

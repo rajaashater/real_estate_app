@@ -35,7 +35,7 @@ class RegisterScreen extends StatelessWidget {
                 height: 10.0,
               ),
               Text('Key In Click',
-                  style:Theme.of(context).textTheme.headline4
+                  style:Theme.of(context).textTheme.headline1
               ),
 
               const SizedBox(
@@ -43,6 +43,9 @@ class RegisterScreen extends StatelessWidget {
               ),
               Text('sign up'.tr(),
                   style:Theme.of(context).textTheme.headline2
+              ),
+              const SizedBox(
+                height: 10.0,
               ),
               Text('create your account'.tr(),
                   style:Theme.of(context).textTheme.headline3
@@ -101,7 +104,7 @@ class RegisterScreen extends StatelessWidget {
                       onSaved:(value) => _phone = value,
                       keyboardType: TextInputType.phone,
                       decoration:  InputDecoration(
-                        labelText: 'name'.tr(),
+                        labelText: 'phone'.tr(),
                         prefixIcon: const Icon(Icons.phone) ,
                       ),
                       validator: qValidator([
@@ -112,7 +115,15 @@ class RegisterScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10.0,
                     ),
-                    PasswordTextFormField(onSaved:(value) => _password = value),
+                    PasswordTextFormField(
+                      onSaved:(value) => _password = value,
+                      validator: qValidator([
+                        IsRequired(),
+                        MinLength(8),
+                      ]),
+                    ),
+
+
                     const SizedBox(
                       height: 20.0,
                     ),
@@ -129,16 +140,16 @@ class RegisterScreen extends StatelessWidget {
                   }
                 },
                   child: Text('sign up'.tr(),
-                      style:Theme.of(context).textTheme.headline4),
+                      style:Theme.of(context).textTheme.headline1),
                 ),
               ),
               const SizedBox(
                 height: 20.0,
               ),
-                  const Text('already have account?'),
+                   Text('already have account?'.tr(), style:Theme.of(context).textTheme.headline1),
                   TextButton(
                     onPressed: (){},
-                    child:const Text ('login'),
+                    child:Text ('login'.tr()),
                   ),
             ],
           ),
