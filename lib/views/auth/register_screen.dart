@@ -3,6 +3,7 @@ import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/utils/theme/app_theme.dart';
+import 'package:real_estate_app/views/auth/login_screen.dart';
 import 'package:real_estate_app/views/auth/password_text_from_field.dart';
 
 import '../../utils/theme/app_colors.dart';
@@ -41,13 +42,13 @@ class RegisterScreen extends StatelessWidget {
               const SizedBox(
                 height: 40.0,
               ),
-              Text('sign up'.tr(),
+              Text('sign_up'.tr(),
                   style:Theme.of(context).textTheme.headline2
               ),
               const SizedBox(
                 height: 10.0,
               ),
-              Text('create your account'.tr(),
+              Text('create_your_account'.tr(),
                   style:Theme.of(context).textTheme.headline3
               ),
               const SizedBox(
@@ -75,7 +76,7 @@ class RegisterScreen extends StatelessWidget {
                       onSaved:(value) => _lastName = value,
                       keyboardType: TextInputType.name,
                       decoration:  InputDecoration(
-                        labelText: 'last name'.tr(),
+                        labelText: 'last_name'.tr(),
                         prefixIcon: const Icon(Icons.person) ,
                       ),
                       validator: qValidator([
@@ -139,18 +140,15 @@ class RegisterScreen extends StatelessWidget {
                     _formKey.currentState!.save();
                   }
                 },
-                  child: Text('sign up'.tr(),
+                  child: Text('sign_up'.tr(),
                       style:Theme.of(context).textTheme.headline1),
                 ),
               ),
               const SizedBox(
                 height: 20.0,
               ),
-                   Text('already have account?'.tr(), style:Theme.of(context).textTheme.headline1),
-                  TextButton(
-                    onPressed: (){},
-                    child:Text ('login'.tr()),
-                  ),
+                   //Text('already have account?'.tr(), style:Theme.of(context).textTheme.headline1),
+                  //TextButton(onPressed: ()=> Navigator.of(context).pop(MaterialPageRoute(builder:(_) => LoginScreen() )) ,child:Text ('login'.tr()),),
             ],
           ),
         ),

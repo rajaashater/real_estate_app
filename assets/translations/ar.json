@@ -1,10 +1,10 @@
 {
   "damascus" : "دمشق",
   "login" : "تسجيل الدخول",
-  "log out" : "تسجيل خروج",
+  "log_out" : "تسجيل خروج",
   "email" : "بريد الالكتروني",
   "home" : "الصفحة الرئيسية",
-  "my reals" : "عقاراتي",
+  "my_reals" : "عقاراتي",
   "password" : "كلمة السر",
   "menu": "القائمة",
   "setting": "الاعدادت",
@@ -23,12 +23,12 @@
   "space": "المساحة",
   "price": "السعر",
   "welcome":"أهلاً وسهلا",
-  "sign up": "تسجيل دخول",
-  "create your account":"قم يإنشاء حسابك",
+  "sign_up": "تسجيل دخول",
+  "create_your_account":"قم يإنشاء حسابك",
   "name": "الاسم",
-  "last name": "الكنية",
+  "last_name": "الكنية",
   "phone": "الهاتف",
-  "don't have an account ?": "ليس لديك حساب؟",
-  "regester now": "سجل الان"
+  "don't_have_an_account": "ليس لديك حساب؟",
+  "register_now": "سجل الان"
 
 }

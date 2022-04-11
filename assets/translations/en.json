@@ -1,10 +1,10 @@
 {
   "damascus" : "Damascus",
   "login" : "Login",
-  "log out": "Log Out",
+  "log_out": "Log Out",
   "email" : "Email",
   "home" : "Home",
-  "my reals" : "My Reals",
+  "my_reals" : "My Reals",
   "password" : "Password",
   "menu": "Menu",
   "setting": "Setting",
@@ -23,13 +23,13 @@
   "space": "Space",
   "price": "Price",
   "welcome":"Welcome",
-  "sign up": "Sign Up",
-  "create your account":"Create Your Account",
+  "sign_up": "Sign Up",
+  "create_your_account":"Create Your Account",
   "name": "Name",
-  "last name": "Last Name",
+  "last_name": "Last Name",
   "phone":"Phone",
-  "don't have an account ?": "Don't have an account ?",
-  "regester now": "Regester now"
+  "don't_have_an_account": "Don't have an account ?",
+  "register_now": "Register now"
 
 
 }

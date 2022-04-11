@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/utils/theme/app_theme.dart';
 import 'package:real_estate_app/views/auth/password_text_from_field.dart';
+import 'package:real_estate_app/views/auth/register_screen.dart';
 
 import '../../utils/theme/app_colors.dart';
 
@@ -39,6 +40,9 @@ class LoginScreen extends StatelessWidget {
                Text('login'.tr(),
                    style:Theme.of(context).textTheme.headline2
                ),
+              const SizedBox(
+                height: 10.0,
+              ),
               Text('welcome'.tr(),
                   style:Theme.of(context).textTheme.headline3
               ),
@@ -96,10 +100,10 @@ class LoginScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                   Text('Don\'t have an account ?'.tr(),style:Theme.of(context).textTheme.headline1),
+                   Text('don\'t_have_an_account'.tr(),style:Theme.of(context).textTheme.headline1),
                   TextButton(
-                    onPressed: (){},
-                    child:Text ('Regester now'.tr()),
+                    onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder:(_) => RegisterScreen() )) ,
+                    child:Text ('register_now'.tr()),
                   ),
                 ],
               ),
