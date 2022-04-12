@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
 
       body: ListView.separated(
         padding: EdgeInsets.symmetric(vertical: 20.0),
-        separatorBuilder: (_, int index) => SizedBox(),
+        separatorBuilder: (_, int index) => SizedBox( height: 20.0,),
         itemCount: 20,
         itemBuilder: (context, index) {
           return Row(
