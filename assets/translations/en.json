@@ -32,9 +32,9 @@
   "register_now": "Register now",
   "profile": "Profile",
   "rate_us": "Rate Us",
-  "my_real_estate": "My Real Estate",
+  "my_properties": "My Properties",
   "my_favourite": "My Favourite",
-  "add_reals": "Add Reals"
-
+  "add_property": "Add Property",
+  "filter":"Filter"
 
 }

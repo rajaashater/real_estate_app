@@ -32,8 +32,10 @@
   "register_now": "سجل الان",
   "profile": "الملف الشخصي",
   "rate_us": "قيّمنا",
-  "my_real_estate": "عقاراتي",
+  "my_properties": "عقاراتي",
   "my_favourite": "مفضلتي",
-  "add_reals": "اضف عقارك"
+  "add_property": "اضف عقارك",
+  "filter": "فلتر"
+
 
 }
