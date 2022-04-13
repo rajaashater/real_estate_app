@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:real_estate_app/views/auth/login_screen.dart';
 import 'package:real_estate_app/views/auth/register_screen.dart';
 
 import '../utils/theme/app_colors.dart';
@@ -11,78 +12,93 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Container(
-        decoration: BoxDecoration(borderRadius:BorderRadius.circular(40) ),
-        child: Drawer(
-          backgroundColor: AppColors.primary,
+      drawer: SizedBox(
+        height: 620,
+        width: 200,
+        child: ClipRRect(borderRadius:BorderRadius.circular(30) ,
+          child: Drawer(
+              backgroundColor: AppColors.primary,
 
-          child:ListView(
-            children: [
-              DrawerHeader(
-                padding: EdgeInsets.all(30),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      width: 130,
-                      height: 90,
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage('assets/images/personal.jpg'),
+              child:ListView(
+                children: [
+                  DrawerHeader(
+                    //padding: EdgeInsets.symmetric(vertical: 2,horizontal: 3),
+                    child: SizedBox(
+                      height: 80,
+                      width: 100,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 100,
+                            child: CircleAvatar(
+                              backgroundImage: AssetImage('assets/images/personal.jpg'),
+                            ),
+                          ),
+                          //SizedBox(height:2,)
+                        ],
                       ),
                     ),
-                    SizedBox(height:5,)
-                  ],
-                ),
+
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.circle,color: AppColors.secondary),
+                    title: Text('profile'.tr(),style: Theme.of(context).textTheme.headline1),
+                    onTap: (){ },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.circle,color: AppColors.secondary),
+                    title: Text('home'.tr(),style: Theme.of(context).textTheme.headline1,),
+                    onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder:(_) => HomeScreen() )) ,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.circle,color: AppColors.secondary),
+                    title: Text('my_real_estate'.tr(),style: Theme.of(context).textTheme.headline1,),
+                    onTap: (){},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.circle,color: AppColors.secondary),
+                    title: Text('my_favourite'.tr(),style: Theme.of(context).textTheme.headline1),
+                    onTap: (){},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.circle,color: AppColors.secondary),
+                    title: Text('login'.tr(),style: Theme.of(context).textTheme.headline1),
+                    onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder:(_) => LoginScreen() )) ,
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.circle,color: AppColors.secondary),
+                    title: Text('setting'.tr(),style: Theme.of(context).textTheme.headline1),
+                    onTap: (){},
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.circle,color: AppColors.secondary),
+                    title: Text('register_now'.tr(),style: Theme.of(context).textTheme.headline1),
+                    onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder:(_) => RegisterScreen() )) ,
+                  ),
+
+                  ListTile(
+                    leading:Icon(Icons.circle,color: AppColors.secondary,),
+                    title: Text('rate_us'.tr(),style: Theme.of(context).textTheme.headline1),
+                    onTap: (){ },
+                  ),
+
+
+                  ListTile(
+                    leading: Icon(Icons.circle,color: AppColors.secondary),
+                    title: Text('sign_out'.tr(),style: Theme.of(context).textTheme.headline1),
+                    onTap: (){},
+                  ),
+                ],
 
               ),
-              ListTile(
-                leading: Icon(Icons.circle,color: AppColors.secondary),
-                title: Text('profile',style: Theme.of(context).textTheme.headline1),
-                onTap: (){ },
-              ),
-              ListTile(
-                leading: Icon(Icons.circle,color: AppColors.secondary),
-                title: Text('home',style: Theme.of(context).textTheme.headline1,),
-                onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder:(_) => HomeScreen() )) ,
-              ),
 
-              ListTile(
-                leading:Icon(Icons.circle,color: AppColors.secondary,),
-                title: Text('rate us',style: Theme.of(context).textTheme.headline1),
-                onTap: (){ },
-              ),
-              ListTile(
-                leading: Icon(Icons.circle,color: AppColors.secondary),
-                title: Text('setting',style: Theme.of(context).textTheme.headline1),
-                onTap: (){},
-              ),
-              ListTile(
-                leading: Icon(Icons.circle,color: AppColors.secondary),
-                title: Text('sign in',style: Theme.of(context).textTheme.headline1),
-                onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder:(_) => RegisterScreen() )) ,
-              ),
-              ListTile(
-                leading: Icon(Icons.circle,color: AppColors.secondary),
-                title: Text('my real estate',style: Theme.of(context).textTheme.headline1,),
-                onTap: (){},
-              ),
-              ListTile(
-                leading: Icon(Icons.circle,color: AppColors.secondary),
-                title: Text('my favourite',style: Theme.of(context).textTheme.headline1),
-                onTap: (){},
-              ),
-              ListTile(
-                leading: Icon(Icons.circle,color: AppColors.secondary),
-                title: Text('sign out',style: Theme.of(context).textTheme.headline1),
-                onTap: (){},
-              ),
-            ],
-
-          ),
-
+            ),
         ),
       ),
+
       backgroundColor: Colors.white,
 
       appBar: AppBar(
@@ -104,6 +120,7 @@ class HomeScreen extends StatelessWidget {
           return Row(
               mainAxisAlignment: index % 2 == 0 ? MainAxisAlignment.end : MainAxisAlignment.start,
               children: [ Container(
+
                 width: 300,
                 height: 200,
                 alignment: AlignmentDirectional.bottomCenter,
@@ -115,9 +132,10 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(5),
-                      bottomRight: Radius.circular(5),)
+                      bottomLeft: Radius.circular(7),
+                      bottomRight: Radius.circular(7),)
                 ),
+                clipBehavior: Clip.antiAlias,
                 child: Container(
                   height: 50,
                   color: AppColors.primary,
@@ -127,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text('1200 ls'),
-                        Text("Villa"),
+                        Text("Villa".tr()),
                         Icon(Icons.favorite),
 
                       ],
@@ -146,9 +164,9 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.primary,
         items: [
-          BottomNavigationBarItem(label:'profile',icon: Icon(Icons.person,color: AppColors.secondary),),
-          BottomNavigationBarItem(label:'home' ,icon: Icon(Icons.home,color: AppColors.secondary)),
-          BottomNavigationBarItem(label:'add reals' ,icon: Icon(Icons.home_work_outlined,color: AppColors.secondary)),],),
+          BottomNavigationBarItem(label:'profile'.tr(),icon: Icon(Icons.person,color: AppColors.secondary),),
+          BottomNavigationBarItem(label:'home'.tr() ,icon: Icon(Icons.home,color: AppColors.secondary)),
+          BottomNavigationBarItem(label:'add_reals'.tr() ,icon: Icon(Icons.home_work_outlined,color: AppColors.secondary)),],),
     );
   }
 }

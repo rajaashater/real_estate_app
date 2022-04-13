@@ -1,7 +1,7 @@
 {
   "damascus" : "دمشق",
   "login" : "تسجيل الدخول",
-  "log_out" : "تسجيل خروج",
+  "sign_out" : "تسجيل خروج",
   "email" : "بريد الالكتروني",
   "home" : "الصفحة الرئيسية",
   "my_reals" : "عقاراتي",
@@ -29,6 +29,11 @@
   "last_name": "الكنية",
   "phone": "الهاتف",
   "don't_have_an_account": "ليس لديك حساب؟",
-  "register_now": "سجل الان"
+  "register_now": "سجل الان",
+  "profile": "الملف الشخصي",
+  "rate_us": "قيّمنا",
+  "my_real_estate": "عقاراتي",
+  "my_favourite": "مفضلتي",
+  "add_reals": "اضف عقارك"
 
 }

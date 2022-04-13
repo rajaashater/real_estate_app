@@ -1,7 +1,7 @@
 {
   "damascus" : "Damascus",
   "login" : "Login",
-  "log_out": "Log Out",
+  "sign_out": "Sign Out",
   "email" : "Email",
   "home" : "Home",
   "my_reals" : "My Reals",
@@ -29,7 +29,12 @@
   "last_name": "Last Name",
   "phone":"Phone",
   "don't_have_an_account": "Don't have an account ?",
-  "register_now": "Register now"
+  "register_now": "Register now",
+  "profile": "Profile",
+  "rate_us": "Rate Us",
+  "my_real_estate": "My Real Estate",
+  "my_favourite": "My Favourite",
+  "add_reals": "Add Reals"
 
 
 }
