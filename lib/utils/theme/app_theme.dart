@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:real_estate_app/utils/utils.dart';
+import 'package:real_estate_app/utils/app_utils.dart';
+import 'package:real_estate_app/utils/theme/app_colors.dart';
 
 abstract class AppTheme {
   static ThemeData lightTheme(BuildContext context) => ThemeData(

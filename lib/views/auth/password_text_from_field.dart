@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:queen_validators/queen_validators.dart';
-import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:real_estate_app/utils/theme/app_colors.dart';
 
 class PasswordTextFormField extends StatefulWidget {
   const PasswordTextFormField({Key? key, this.onSaved, this.validator}) : super(key: key);
