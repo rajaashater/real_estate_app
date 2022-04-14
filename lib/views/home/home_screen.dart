@@ -27,9 +27,11 @@ class HomeScreen extends StatelessWidget {
             actions: [
               //IconButton(onPressed: () {},
               //icon: const Icon(Icons.compare_arrows),),
-              IconButton(
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder:(_) => HomeEndDrawer() )) ,
-                icon: const Icon(Icons.search),
+              Builder(
+                builder:(context)=> IconButton(
+                  onPressed: () =>Scaffold.of(context).openEndDrawer(),
+                  icon: const Icon(Icons.search),
+                ),
               )
             ],
           ),
