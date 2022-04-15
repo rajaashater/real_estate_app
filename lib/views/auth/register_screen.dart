@@ -2,6 +2,7 @@
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
+import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/auth/password_text_from_field.dart';
 
 import '../../utils/theme/app_colors.dart';
@@ -29,7 +30,7 @@ class RegisterScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Image.asset('assets/images/logo.png'),
+              Image.asset(AppConstants.logo),
               const SizedBox(
                 height: 10.0,
               ),

@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/auth/login_screen.dart';
 
 class HomeDrawer extends StatelessWidget {
@@ -35,7 +36,7 @@ class HomeDrawer extends StatelessWidget {
                         )
                       ],
                     )
-                  : Image.asset('assets/images/logo.png',
+                  : Image.asset(AppConstants.logo,
                       height: 70, width: 70),
               const SizedBox(height: 20.0),
               ListTile(
@@ -62,7 +63,9 @@ class HomeDrawer extends StatelessWidget {
                 leading: Icon(Icons.circle, color: AppColors.secondary),
                 title: Text('setting'.tr(),
                     style: Theme.of(context).textTheme.headline1),
-                onTap: () {},
+                onTap: () {
+                  context.setLocale(context.locale.languageCode == 'en' ? Locale('ar') : Locale('en'));
+                },
               ),
               ListTile(
                 leading: Icon(
@@ -71,7 +74,14 @@ class HomeDrawer extends StatelessWidget {
                 ),
                 title: Text('rate_us'.tr(),
                     style: Theme.of(context).textTheme.headline1),
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                    title: Text('Rate us'),
+                    content: Text('Content'),
+                  ));
+                },
               ),
               //TODO replace true with isSignIn variable
               ListTile(
