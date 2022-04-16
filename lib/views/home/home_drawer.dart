@@ -76,7 +76,15 @@ class HomeDrawer extends StatelessWidget {
                 title: Text('rate_us'.tr(),
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () {
-                  ShowRateDialog();
+                  AwesomeDialog(
+                    context: context,
+                    dialogType: DialogType.INFO,
+                    animType: AnimType.BOTTOMSLIDE,
+                    title: 'Dialog Title',
+                    desc: 'Dialog description here.............',
+                    btnCancelOnPress: () {},
+                    btnOkOnPress: () {},
+                  )..show();
                   },
               ),
               //TODO replace true with isSignIn variable
