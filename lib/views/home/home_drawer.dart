@@ -1,5 +1,7 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/auth/login_screen.dart';
@@ -69,7 +71,7 @@ class HomeDrawer extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.circle,
                   color: AppColors.secondary,
                 ),
@@ -78,18 +80,37 @@ class HomeDrawer extends StatelessWidget {
                 onTap: () {
                   AwesomeDialog(
                     context: context,
-                    dialogType: DialogType.INFO,
+                    dialogType: DialogType.NO_HEADER,
                     animType: AnimType.BOTTOMSLIDE,
-                    title: 'Dialog Title',
-                    desc: 'Dialog description here.............',
-                    btnCancelOnPress: () {},
-                    btnOkOnPress: () {},
-                  )..show();
+                    body: Column(
+                      children: [
+                        const Text('Rate us'),
+                      RatingBar.builder(
+                        initialRating: 0,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                        itemBuilder: (context, _) => const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        onRatingUpdate: (rating) {
+                          //TODO update rating
+                        },
+                      ),
+                        ElevatedButton(onPressed: (){
+                          //TODO send request with updating value
+                        }, child: const Text('Submit'))
+                      ],
+                    ),
+                  ).show();
                   },
               ),
               //TODO replace true with isSignIn variable
               ListTile(
-                leading: Icon(Icons.circle, color: AppColors.secondary),
+                leading: const Icon(Icons.circle, color: AppColors.secondary),
                 title: Text(false ? 'sign_out'.tr() : 'login'.tr(),
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () => Navigator.of(context)
