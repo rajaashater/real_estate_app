@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/auth/login_screen.dart';
+import 'package:real_estate_app/views/components/components.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({Key? key}) : super(key: key);
@@ -48,7 +49,7 @@ class HomeDrawer extends StatelessWidget {
               ListTile(
                 leading: Icon(Icons.circle, color: AppColors.secondary),
                 title: Text(
-                  'my_real_estate'.tr(),
+                  'my_properties'.tr(),
                   style: Theme.of(context).textTheme.headline1,
                 ),
                 onTap: () {},
@@ -75,13 +76,8 @@ class HomeDrawer extends StatelessWidget {
                 title: Text('rate_us'.tr(),
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                    title: Text('Rate us'),
-                    content: Text('Content'),
-                  ));
-                },
+                  ShowRateDialog();
+                  },
               ),
               //TODO replace true with isSignIn variable
               ListTile(
@@ -97,4 +93,6 @@ class HomeDrawer extends StatelessWidget {
       ),
     );
   }
+
+
 }
