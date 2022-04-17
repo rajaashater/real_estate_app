@@ -26,11 +26,12 @@ class MyFavouriteScreen extends StatelessWidget {
           )
         ],
       ),
-      body: ListView.separated(
+      body: GridView.builder(
         padding: const EdgeInsets.all(20.0),
-        separatorBuilder: (_, int index) =>
-        const SizedBox(
-          height: 20.0,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 15.0,
+          crossAxisSpacing: 15.0
         ),
         itemCount: 20,
         itemBuilder: (context, index) {
