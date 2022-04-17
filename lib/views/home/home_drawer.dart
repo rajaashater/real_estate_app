@@ -7,6 +7,7 @@ import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/drawer/login_screen.dart';
 
 import '../drawer/my_favourite.dart';
+import '../drawer/my_properties.dart';
 import '../drawer/profile_screen.dart';
 
 class HomeDrawer extends StatelessWidget {
@@ -56,14 +57,15 @@ class HomeDrawer extends StatelessWidget {
                   'my_properties'.tr(),
                   style: Theme.of(context).textTheme.headline1,
                 ),
-                onTap: () {},
+                onTap: () => Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => const MyPropertiesScreen())),
               ),
               ListTile(
                 leading: const Icon(Icons.circle, color: AppColors.secondary),
                 title: Text('my_favourite'.tr(),
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => MyFavouriteScreen())),
+                    .push(MaterialPageRoute(builder: (_) => const MyFavouriteScreen())),
               ),
               ListTile(
                 leading: const Icon(Icons.circle, color: AppColors.secondary),
@@ -71,8 +73,8 @@ class HomeDrawer extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () {
                   context.setLocale(context.locale.languageCode == 'en'
-                      ? Locale('ar')
-                      : Locale('en'));
+                      ? const Locale('ar')
+                      : const Locale('en'));
                 },
               ),
               ListTile(
