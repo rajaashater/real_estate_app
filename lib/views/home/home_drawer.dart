@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_constants.dart';
-import 'package:real_estate_app/views/auth/login_screen.dart';
-import 'package:real_estate_app/views/components/components.dart';
+import 'package:real_estate_app/views/drawer/login_screen.dart';
+
+import '../drawer/my_favourite.dart';
+import '../drawer/profile_screen.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({Key? key}) : super(key: key);
@@ -39,17 +41,17 @@ class HomeDrawer extends StatelessWidget {
                         )
                       ],
                     )
-                  : Image.asset(AppConstants.logo,
-                      height: 70, width: 70),
+                  : Image.asset(AppConstants.logo, height: 70, width: 70),
               const SizedBox(height: 20.0),
-              ListTile(
-                leading: Icon(Icons.circle, color: AppColors.secondary),
+              if (true) ListTile(
+                leading: const Icon(Icons.circle, color: AppColors.secondary),
                 title: Text('profile'.tr(),
                     style: Theme.of(context).textTheme.headline1),
-                onTap: () {},
+                onTap: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => ProfileScreen())),
               ),
               ListTile(
-                leading: Icon(Icons.circle, color: AppColors.secondary),
+                leading: const Icon(Icons.circle, color: AppColors.secondary),
                 title: Text(
                   'my_properties'.tr(),
                   style: Theme.of(context).textTheme.headline1,
@@ -57,17 +59,20 @@ class HomeDrawer extends StatelessWidget {
                 onTap: () {},
               ),
               ListTile(
-                leading: Icon(Icons.circle, color: AppColors.secondary),
+                leading: const Icon(Icons.circle, color: AppColors.secondary),
                 title: Text('my_favourite'.tr(),
                     style: Theme.of(context).textTheme.headline1),
-                onTap: () {},
+                onTap: () => Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => MyFavouriteScreen())),
               ),
               ListTile(
-                leading: Icon(Icons.circle, color: AppColors.secondary),
+                leading: const Icon(Icons.circle, color: AppColors.secondary),
                 title: Text('setting'.tr(),
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () {
-                  context.setLocale(context.locale.languageCode == 'en' ? Locale('ar') : Locale('en'));
+                  context.setLocale(context.locale.languageCode == 'en'
+                      ? Locale('ar')
+                      : Locale('en'));
                 },
               ),
               ListTile(
@@ -82,31 +87,49 @@ class HomeDrawer extends StatelessWidget {
                     context: context,
                     dialogType: DialogType.NO_HEADER,
                     animType: AnimType.BOTTOMSLIDE,
-                    body: Column(
-                      children: [
-                        const Text('Rate us'),
-                      RatingBar.builder(
-                        initialRating: 0,
-                        minRating: 1,
-                        direction: Axis.horizontal,
-                        allowHalfRating: true,
-                        itemCount: 5,
-                        itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                        itemBuilder: (context, _) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        onRatingUpdate: (rating) {
-                          //TODO update rating
-                        },
+                    body: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            'rate_us'.tr(),
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                          const SizedBox(
+                            height: 25.0,
+                          ),
+                          RatingBar.builder(
+                            initialRating: 0,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemCount: 5,
+                            itemPadding:
+                                const EdgeInsets.symmetric(horizontal: 6.0),
+                            itemBuilder: (context, _) => const Icon(
+                              Icons.star,
+                              color: AppColors.secondary,
+                            ),
+                            onRatingUpdate: (rating) {
+                              //TODO update rating
+                            },
+                          ),
+                          const SizedBox(
+                            height: 10.0,
+                          ),
+                          ElevatedButton(
+                              onPressed: () {
+                                //TODO send request with updating value
+                              },
+                              child: Text(
+                                'Submit',
+                                style: Theme.of(context).textTheme.headline1,
+                              ))
+                        ],
                       ),
-                        ElevatedButton(onPressed: (){
-                          //TODO send request with updating value
-                        }, child: const Text('Submit'))
-                      ],
                     ),
                   ).show();
-                  },
+                },
               ),
               //TODO replace true with isSignIn variable
               ListTile(
@@ -122,6 +145,4 @@ class HomeDrawer extends StatelessWidget {
       ),
     );
   }
-
-
 }

@@ -8,8 +8,8 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      padding: EdgeInsets.symmetric(vertical: 20.0),
-      separatorBuilder: (_, int index) => SizedBox(
+      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      separatorBuilder: (_, int index) => const SizedBox(
         height: 20.0,
       ),
       itemCount: 20,
@@ -23,7 +23,7 @@ class HomeBody extends StatelessWidget {
                 width: 300,
                 height: 200,
                 alignment: AlignmentDirectional.bottomCenter,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     boxShadow: [
                       BoxShadow(offset: Offset(1.0, 2.0), blurRadius: 6.0, color: Colors.black45)
                     ],
@@ -42,13 +42,13 @@ class HomeBody extends StatelessWidget {
                   height: 50,
                   color: AppColors.primary,
                   child: DefaultTextStyle.merge(
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text('1200 ls'),
+                        const Text('1200 SYP'),
                         Text("Villa".tr()),
-                        Icon(Icons.favorite),
+                        const Icon(Icons.favorite),
                       ],
                     ),
                   ),

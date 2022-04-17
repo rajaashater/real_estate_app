@@ -35,7 +35,13 @@
   "my_properties": "عقاراتي",
   "my_favourite": "مفضلتي",
   "add_property": "اضف عقارك",
-  "filter": "فلتر"
+  "filter": "فلتر",
+  "update_profile": "تعديل الملف الشخصي",
+  "change_password": "تغيير كلمة السر",
+  "gander": "الجنس",
+  "male": "ذكر",
+  "female": "أنثى",
+  "edit_profile": "تعديل الملف الشخصي"
 
 
 }

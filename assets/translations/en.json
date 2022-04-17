@@ -35,6 +35,13 @@
   "my_properties": "My Properties",
   "my_favourite": "My Favourite",
   "add_property": "Add Property",
-  "filter":"Filter"
+  "filter":"Filter",
+  "update_profile": "Update Profile",
+  "change_password": "Change Password",
+  "gander": "Gander",
+  "male":"Male",
+  "female": "Female",
+  "edit_profile": "Edit Profile"
+
 
 }

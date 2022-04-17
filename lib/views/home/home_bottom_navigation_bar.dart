@@ -8,7 +8,7 @@ class HomeBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FluidNavBar(
-      style: FluidNavBarStyle(
+      style: const FluidNavBarStyle(
           barBackgroundColor: AppColors.primary,
           iconBackgroundColor: Colors.white,
           iconUnselectedForegroundColor: AppColors.secondary,

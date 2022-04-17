@@ -21,14 +21,14 @@ class HomeEndDrawer extends StatelessWidget {
               const SizedBox(height: 40.0),
               Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.circle,
                     size: 10,
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text('filter'.tr(),
                       style: Theme.of(context).textTheme.headline1),
-                  SizedBox(
+                  const SizedBox(
                     width: 70,
                   ),
                   SizedBox(
@@ -42,28 +42,28 @@ class HomeEndDrawer extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               KDropDownButtonFormField<String>(
-                label: Text('select_location'),
+                label: const Text('select_location'),
                   items: ['city1', 'city2', 'city3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList(),
                   ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               KDropDownButtonFormField<String>(
-                label: Text('property_type'),
+                label: const Text('property_type'),
                 items: ['type1', 'type2', 'type3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList(),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(children: [
-                Icon(
+                const Icon(
                   Icons.circle,
                   size: 10,
                 ),
-                SizedBox(width: 5,),
+                const SizedBox(width: 5,),
                 Text('size'.tr(), style: Theme.of(context).textTheme.headline1),
               ]),
-              SizedBox(height:5),
+              const SizedBox(height:5),
               KRangeSlider(
                 min: 10.0,
                 max: 500.0,
@@ -72,18 +72,18 @@ class HomeEndDrawer extends StatelessWidget {
                   //TODO Save value
                 },
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Row(children: [
-                Icon(
+                const Icon(
                   Icons.circle,
                   size: 10,
                 ),
-                SizedBox(width: 5,),
+                const SizedBox(width: 5,),
 
                 Text('price'.tr(),
                     style: Theme.of(context).textTheme.headline1),
               ]),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               KRangeSlider(
                 min: 50.0,
                 max: 1000.0,
@@ -92,36 +92,36 @@ class HomeEndDrawer extends StatelessWidget {
                   //TODO Save value
                 },
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(children: [
-                Icon(
+                const Icon(
                   Icons.circle,
                   size: 10,
                 ),
-                SizedBox(width: 5,),
+                const SizedBox(width: 5,),
 
                 Text('number_of_rooms'.tr(),
                     style: Theme.of(context).textTheme.headline1),
               ]),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               KChoicesWrap<int>(
                 list: AppConstants.numberOfRoomsList,
                 onSelected: (value){
                 //TODO Save value
               },
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(children: [
-                Icon(
+                const Icon(
                   Icons.circle,
                   size: 10,
                 ),
-                SizedBox(width: 5,),
+                const SizedBox(width: 5,),
 
                 Text('ownership'.tr(),
                     style: Theme.of(context).textTheme.headline1),
               ]),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               KChoicesWrap<String>(
                 spacing: 20.0,
                 list: AppConstants.ownershipList,
@@ -129,7 +129,7 @@ class HomeEndDrawer extends StatelessWidget {
                   //TODO Save value
                 },
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               SizedBox(
                 width: 120.0,
                 height: 35.0,
@@ -145,6 +145,6 @@ class HomeEndDrawer extends StatelessWidget {
         ),
       ),
     );
-    ;
+
   }
 }

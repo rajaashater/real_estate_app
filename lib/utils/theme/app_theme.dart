@@ -23,6 +23,12 @@ abstract class AppTheme {
           fontWeight: FontWeight.normal,
           color:Colors.white,
          ),
+      headline4: TextStyle(
+        fontSize: 25.0,
+        fontWeight: FontWeight.normal,
+        color:AppColors.secondary,
+      ),
+
 
       subtitle1: TextStyle(
         color:Colors.white,
