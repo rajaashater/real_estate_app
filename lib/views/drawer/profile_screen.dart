@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 
 import '../../utils/theme/app_colors.dart';
 import '../components/k_drop_down_button_form_field.dart';
 import 'change_password.dart';
+
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
@@ -48,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (_) => const ChangePasswordScreen())),
+                            builder: (_) =>  ChangePasswordScreen())),
                     child: Text('change_password'.tr(),
                         style: Theme.of(context).textTheme.headline1),
                   ),

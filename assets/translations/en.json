@@ -41,7 +41,10 @@
   "gander": "Gander",
   "male":"Male",
   "female": "Female",
-  "edit_profile": "Edit Profile"
+  "edit_profile": "Edit Profile",
+  "real_estate_search": "Real Estate Search",
+  "type": "Type",
+  "post_your_requirement": " Post Your Requirement"
 
 
 }

@@ -4,6 +4,8 @@ import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/components/components.dart';
 
+import '../drawer/post_requirement_screen.dart';
+
 class HomeEndDrawer extends StatelessWidget {
   const HomeEndDrawer({Key? key}) : super(key: key);
 
@@ -129,7 +131,7 @@ class HomeEndDrawer extends StatelessWidget {
                   //TODO Save value
                 },
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               SizedBox(
                 width: 120.0,
                 height: 35.0,
@@ -139,6 +141,14 @@ class HomeEndDrawer extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline1),
                 ),
               ),
+              const SizedBox(height: 20),
+
+              TextButton(
+                onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => PostRequirementScreen())),
+                child: Text('post_your_requirement'.tr()),
+              ),
+
 
             ],
           ),

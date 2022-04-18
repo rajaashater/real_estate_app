@@ -63,6 +63,8 @@ class LoginScreen extends StatelessWidget {
                     ),
                     PasswordTextFormField(
                       onSaved: (value) => _password = value,
+                        labelText: 'password'.tr(),
+
                       validator: qValidator([
                         IsRequired(),
                       ]),
@@ -89,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 20.0,
+                height: 40.0,
               ),
               Row(
                 children: [

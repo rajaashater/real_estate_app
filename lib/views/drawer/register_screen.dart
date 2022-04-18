@@ -111,6 +111,7 @@ class RegisterScreen extends StatelessWidget {
                     ),
                     PasswordTextFormField(
                       onSaved: (value) => _password = value,
+                        labelText: 'password'.tr(),
                       validator: qValidator([
                         IsRequired(),
                         MinLength(8),

@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 
 class PasswordTextFormField extends StatefulWidget {
-  const PasswordTextFormField({Key? key, this.onSaved, this.validator})
+  const PasswordTextFormField({Key? key, this.onSaved, this.validator, this.labelText})
       : super(key: key);
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final String? labelText;
 
   @override
   _PasswordTextFormFieldState createState() => _PasswordTextFormFieldState();
@@ -22,7 +23,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       keyboardType: TextInputType.visiblePassword,
       obscureText: _obscureText,
       decoration: InputDecoration(
-        labelText: 'password'.tr(),
+        labelText: widget.labelText,
         prefixIcon: const Icon(Icons.lock),
         suffixIcon: IconButton(
             icon: Icon(
