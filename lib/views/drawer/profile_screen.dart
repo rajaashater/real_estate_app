@@ -1,15 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:queen_validators/queen_validators.dart';
-
 import '../../utils/theme/app_colors.dart';
-import '../components/k_drop_down_button_form_field.dart';
+import '../components/components.dart';
 import 'change_password.dart';
 
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
+  XFile? _image;
   String? _email;
   String? _city;
   String? _name;
@@ -31,18 +32,11 @@ class ProfileScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 50,
-                    child: CircleAvatar(
-                      backgroundColor: AppColors.primary,
-                      radius: 49,
-                      child: CircleAvatar(
-                        radius: 45,
-                        backgroundImage:
-                            AssetImage('assets/images/personal.jpg'),
-                      ),
-                    ),
+                  KProfileImage(
+                    onImageSelected: (image){
+                     //TODO Practice
+                      _image = image;
+                    },
                   ),
                   const SizedBox(width: 10.0),
                   ElevatedButton(
@@ -154,7 +148,9 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    //TODO API request
+                  },
                   child: Text('update_profile'.tr(),
                       style: Theme.of(context).textTheme.headline1),
                 ),
