@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class KChoicesWrap<T> extends StatefulWidget {
-  const KChoicesWrap({Key? key, required this.list, this.onSelected, this.spacing = 0.0}) : super(key: key);
+  const KChoicesWrap({Key? key, required this.list, required this.onItemSelected, this.spacing = 0.0}) : super(key: key);
   final List<T> list;
-  final void Function(T)? onSelected;
+  final void Function(T? value) onItemSelected;
   final double spacing;
   @override
-  State<KChoicesWrap> createState() => _KChoicesWrapState();
+  State<KChoicesWrap> createState() => _KChoicesWrapState<T>();
 }
 
-class _KChoicesWrapState extends State<KChoicesWrap> {
+class _KChoicesWrapState<T> extends State<KChoicesWrap> {
   late List<bool> selectionStates;
   
   @override
@@ -24,7 +24,7 @@ class _KChoicesWrapState extends State<KChoicesWrap> {
       spacing: widget.spacing,
         children: widget.list.map((e) =>
         ChoiceChip(
-            label: Text(e.toString()),
+            label: Text(e.runtimeType is String ? e : e.toString()),
             selected: selectionStates[widget.list.indexOf(e)],
           onSelected: (value){
               if(value){
@@ -32,9 +32,7 @@ class _KChoicesWrapState extends State<KChoicesWrap> {
                   selectionStates = List.generate(widget.list.length, (_) => false);
                   selectionStates[widget.list.indexOf(e)] = value;
                 });
-                if(widget.onSelected != null){
-                  widget.onSelected!(e);
-                }
+                widget.onItemSelected(e);
               }
           },
         )

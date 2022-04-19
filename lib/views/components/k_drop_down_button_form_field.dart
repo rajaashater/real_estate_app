@@ -16,10 +16,10 @@ class KDropDownButtonFormField<T> extends StatelessWidget {
       onChanged: (_){},
       onSaved: onSaved,
       validator: validator,
-      style: TextStyle(color: AppColors.secondary),
+      style: const TextStyle(color: AppColors.secondary),
       decoration: InputDecoration(
         label: label,
-        contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0)
+        contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0)
       ),
     );
   }

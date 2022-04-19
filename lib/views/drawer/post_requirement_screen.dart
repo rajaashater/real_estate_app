@@ -7,8 +7,8 @@ import '../components/k_choices_wrap.dart';
 import 'details_requirement.dart';
 
 class PostRequirementScreen extends StatelessWidget {
-  const PostRequirementScreen({Key? key}) : super(key: key);
-
+  PostRequirementScreen({Key? key}) : super(key: key);
+  String? _ownership;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,18 +34,25 @@ class PostRequirementScreen extends StatelessWidget {
                   KChoicesWrap<String>(
                     spacing: 20.0,
                     list: AppConstants.ownershipList,
-                    onSelected: (value){
-                      //TODO Save value
+                    onItemSelected: (dynamic value){
+                      _ownership = value;
                     },
                   ),
-                  SizedBox(height: 200,),
+                  const SizedBox(height: 200),
 
                   SizedBox(
                     width: double.infinity,
                     height: 35.0,
                     child: ElevatedButton(
-                      onPressed: ()  => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => DetailsRequirementScreen())),
+                      onPressed: ()  {
+                        if(_ownership != null){
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (_) => DetailsRequirementScreen()));
+                        }
+                        else{
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('ownership is required')));
+                        }
+                      },
                       child: Text('next'.tr(),
                           style: Theme.of(context).textTheme.headline1),
                     ),

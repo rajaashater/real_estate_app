@@ -95,7 +95,7 @@ class DetailsRequirementScreen extends StatelessWidget {
             const SizedBox(height: 10),
             KChoicesWrap<int>(
               list: AppConstants.numberOfRoomsList,
-              onSelected: (value){
+              onItemSelected: (dynamic value){
                 //TODO Save value
               },
             ),

@@ -8,7 +8,6 @@ import '../drawer/post_requirement_screen.dart';
 
 class HomeEndDrawer extends StatelessWidget {
   const HomeEndDrawer({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -47,14 +46,17 @@ class HomeEndDrawer extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              KDropDownButtonFormField<String>(
-                label: const Text('select_location'),
-                  items: ['city1', 'city2', 'city3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList(),
+              Column(
+                children: [
+                  KDropDownButtonFormField<String>(
+                    label: const Text('select_location'),
+                      items: ['city1', 'city2', 'city3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList()),
+                  const SizedBox(height: 20),
+                  KDropDownButtonFormField<String>(
+                    label: const Text('property_type'),
+                    items: ['type1', 'type2', 'type3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList(),
                   ),
-              const SizedBox(height: 20),
-              KDropDownButtonFormField<String>(
-                label: const Text('property_type'),
-                items: ['type1', 'type2', 'type3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList(),
+                ],
               ),
               const SizedBox(height: 20),
               Row(children: [
@@ -108,7 +110,7 @@ class HomeEndDrawer extends StatelessWidget {
               const SizedBox(height: 10),
               KChoicesWrap<int>(
                 list: AppConstants.numberOfRoomsList,
-                onSelected: (value){
+                onItemSelected: (dynamic value){
                 //TODO Save value
               },
               ),
@@ -127,7 +129,7 @@ class HomeEndDrawer extends StatelessWidget {
               KChoicesWrap<String>(
                 spacing: 20.0,
                 list: AppConstants.ownershipList,
-                onSelected: (value){
+                onItemSelected: (dynamic value){
                   //TODO Save value
                 },
               ),
