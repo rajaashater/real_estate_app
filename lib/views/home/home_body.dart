@@ -20,22 +20,19 @@ class HomeBody extends StatelessWidget {
                 : MainAxisAlignment.start,
             children: [
               Container(
-                width: 300,
-                height: 200,
+                width: 370,
+                height: 250,
                 alignment: AlignmentDirectional.bottomCenter,
-                decoration: const BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(offset: Offset(1.0, 2.0), blurRadius: 6.0, color: Colors.black45)
-                    ],
+                decoration: BoxDecoration(
                     color: AppColors.secondary,
-                    image: DecorationImage(
+                    image: const DecorationImage(
                         image: AssetImage('assets/images/reals.jpg'),
                         fit: BoxFit.cover),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(7),
-                      bottomRight: Radius.circular(7),
+                    borderRadius: BorderRadiusDirectional.only(
+                      topStart: Radius.circular(index % 2 == 0 ? 20 : 0),
+                      topEnd: Radius.circular(index % 2 == 0 ? 0 : 20),
+                      bottomStart: Radius.circular(index % 2 == 0 ? 20 : 0),
+                      bottomEnd: Radius.circular(index % 2 == 0 ? 0 : 20),
                     )),
                 clipBehavior: Clip.antiAlias,
                 child: Container(

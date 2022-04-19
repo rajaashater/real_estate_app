@@ -12,14 +12,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned.fill(
-            child:
-                Image.asset('assets/images/packground.jpg', fit: BoxFit.cover)),
+        // Positioned.fill(
+        //     child:
+        //         Image.asset('assets/images/packground.jpg', fit: BoxFit.cover)),
         Scaffold(
-          backgroundColor: Colors.transparent,
-          endDrawer: HomeEndDrawer(),
-          drawer: HomeDrawer(),
+          backgroundColor: Colors.white,
+          endDrawer: const HomeEndDrawer(),
+          drawer: const HomeDrawer(),
           appBar: AppBar(
+            elevation: 0.0,
             title: Text('damascus'.tr(),
                 style: Theme.of(context).textTheme.headline3),
             actions: [
@@ -33,8 +34,8 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
-          body: HomeBody(),
-          bottomNavigationBar: HomeBottomNavigationBar(),
+          body: const HomeBody(),
+          bottomNavigationBar: const HomeBottomNavigationBar(),
         ),
       ],
     );

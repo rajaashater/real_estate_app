@@ -10,42 +10,51 @@ class ThankYouScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:AppColors.primary,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
+        backgroundColor: Colors.white,
+        foregroundColor: AppColors.primary,
       ),
-
-      body:Padding(padding: const EdgeInsets.all(30) ,
+      body: Padding(
+        padding: const EdgeInsets.all(30),
         child: Column(
           children: [
-            Icon(Icons.handshake,size: 100,),
-            SizedBox(height: 40.0,),
-            Text('thank_you'.tr(),style: Theme.of(context).textTheme.headline2,),
-            const SizedBox(height: 40.0,),
-            Text('submitted'.tr(),
-                style: Theme.of(context).textTheme.headline1),
+            const Icon(
+              Icons.handshake,
+              size: 100,
+            ),
             const SizedBox(
               height: 40.0,
             ),
-
-            const SizedBox(height: 200,),
-
+            Text(
+              'thank_you'.tr(),
+              style: Theme.of(context).textTheme.headline2,
+            ),
+            const SizedBox(
+              height: 40.0,
+            ),
+            Text('submitted'.tr(),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline1!
+                    .copyWith(color: AppColors.primary)),
+            const SizedBox(
+              height: 40.0,
+            ),
+            const SizedBox(
+              height: 200,
+            ),
             SizedBox(
               width: double.infinity,
               height: 35.0,
               child: ElevatedButton(
-                onPressed: ()  => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => HomeScreen())),
+                onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const HomeScreen())),
                 child: Text('back_to_home'.tr(),
                     style: Theme.of(context).textTheme.headline1),
               ),
             ),
-
-
-
-
-
-
           ],
         ),
       ),

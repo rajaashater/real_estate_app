@@ -12,7 +12,7 @@ class PostRequirementScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            backgroundColor:AppColors.primary,
+            backgroundColor:Colors.white,
             appBar: AppBar(
               title: Text('post_your_requirement'.tr(),
                   style: Theme
@@ -24,7 +24,7 @@ class PostRequirementScreen extends StatelessWidget {
             body:Padding(padding: const EdgeInsets.all(30) ,
               child: Column(
                 children: [
-                  Text('give_description_of_requirement'.tr(),style: Theme.of(context).textTheme.headline3,),
+                  Text('give_description_of_requirement'.tr(),style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColors.primary)),
                   const SizedBox(height: 40.0,),
                   Text('I_would_like_to'.tr(),
                       style: Theme.of(context).textTheme.headline2),
