@@ -13,20 +13,21 @@ class HomeScreen extends StatelessWidget {
     return Stack(
       children: [
         Positioned.fill(
-            child: Image.asset('assets/images/splash.png', fit: BoxFit.cover)),
+            child:
+                Image.asset('assets/images/packground.jpg', fit: BoxFit.cover)),
         Scaffold(
           backgroundColor: Colors.transparent,
           endDrawer: HomeEndDrawer(),
           drawer: HomeDrawer(),
-          appBar:  AppBar(
-            title:
-            Text('damascus'.tr(), style: Theme.of(context).textTheme.headline3),
+          appBar: AppBar(
+            title: Text('damascus'.tr(),
+                style: Theme.of(context).textTheme.headline3),
             actions: [
               //IconButton(onPressed: () {},
               //icon: const Icon(Icons.compare_arrows),),
               Builder(
-                builder:(context)=> IconButton(
-                  onPressed: () =>Scaffold.of(context).openEndDrawer(),
+                builder: (context) => IconButton(
+                  onPressed: () => Scaffold.of(context).openEndDrawer(),
                   icon: const Icon(Icons.search),
                 ),
               )

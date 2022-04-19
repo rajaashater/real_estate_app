@@ -44,7 +44,23 @@
   "edit_profile": "Edit Profile",
   "real_estate_search": "Real Estate Search",
   "type": "Type",
-  "post_your_requirement": " Post Your Requirement"
-
+  "post_your_requirement": " Post Your Requirement",
+  "size":"Size",
+  "number_of_rooms": "Number Of Rooms",
+  "ownership": "Owner Ship",
+  "reset_filter": "Reset Filter",
+  "city": "City",
+  "room": "Room",
+  "submit": "Submit",
+  "give_description_of_requirement": "Give us a complete description of your requirement ... We will match it with the best available choices on KEY IN CLICK",
+  "I_would_like_to": "I would like to ",
+  "request_property":"Request Property",
+  "go_it": "Go it !!!",
+  "what_type_of_property_you_need": "What type of property you need?",
+  "select_property_type": "Select property type",
+  "details_your_requirement": "Details Your Requirement",
+  "thank_you": "Thank You",
+  "submitted": "Your requirement has been submitted successfully ... After verification , matching properties will be send to your email inbox.",
+  "back_to_home": "Back to Home"
 
 }

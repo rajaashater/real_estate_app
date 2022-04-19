@@ -146,7 +146,7 @@ class HomeEndDrawer extends StatelessWidget {
               TextButton(
                 onPressed: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) => PostRequirementScreen())),
-                child: Text('post_your_requirement'.tr()),
+                child: Text('request_property'.tr()),
               ),
 
 

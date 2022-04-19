@@ -44,7 +44,17 @@
   "edit_profile": "تعديل الملف الشخصي",
   "real_estate_search": "البحث عن عقار",
   "type":"النوع",
-  "post_your_requirement": "اطلب رغبتك"
+  "post_your_requirement": "اطلب رغبتك",
+  "size": "المساحة",
+  "number_of_rooms": "عدد الغرف",
+  "ownership": "الملكية",
+  "reset_filter": "اعادة تعيين",
+  "city": "المنطقة",
+  "room": "غرفة",
+  "submit": "إرسال",
+  "give_description_of_requirement":"قدم لنا وصفًا كاملاً لمتطلباتك ... وسنطابقها مع أفضل الخيارات المتاحة على KEY IN CLICK",
+  "I_would_like_to": "أريد ",
+  "request_property": "اطلب عقارك"
 
 
 }

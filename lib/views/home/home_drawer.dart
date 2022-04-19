@@ -124,7 +124,7 @@ class HomeDrawer extends StatelessWidget {
                                 //TODO send request with updating value
                               },
                               child: Text(
-                                'Submit',
+                                'submit'.tr(),
                                 style: Theme.of(context).textTheme.headline1,
                               ))
                         ],

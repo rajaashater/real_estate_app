@@ -9,37 +9,32 @@ class MyFavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('real_estate_search'.tr(),
-            style: Theme
-                .of(context)
-                .textTheme
-                .headline3),
-        actions: [
-          IconButton(
-            onPressed: () =>
-                Navigator.of(context)
-                    .push(
-                    MaterialPageRoute(builder: (_) => const HomeEndDrawer())),
-            icon: const Icon(Icons.search),
-          )
-        ],
-      ),
-      body: GridView.custom(
-        padding: const EdgeInsets.all(20.0),
-        gridDelegate: SliverStairedGridDelegate(
-          mainAxisSpacing: 15.0,
-          crossAxisSpacing: 15.0,
-          startCrossAxisDirectionReversed: true,
-          pattern: const [
-            StairedGridTile(0.5, 1),
-            StairedGridTile(0.5, 3 / 4),
-            StairedGridTile(1.0, 10 / 4),
-          ],
-        ),
-        childrenDelegate: SliverChildBuilderDelegate(
-              (context, index) => Stack(
+    return Stack(
+      children: [
+        Positioned.fill(
+            child:
+            Image.asset('assets/images/packground.jpg', fit: BoxFit.cover)),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            title: Text('my_properties'.tr(),
+                style: Theme.of(context).textTheme.headline3),
+
+          ),
+          body: GridView.custom(
+            padding: const EdgeInsets.all(20.0),
+            gridDelegate: SliverStairedGridDelegate(
+              mainAxisSpacing: 15.0,
+              crossAxisSpacing: 15.0,
+              startCrossAxisDirectionReversed: true,
+              pattern: const [
+                StairedGridTile(0.5, 0.7),
+                StairedGridTile(0.5, 4.5 / 6),
+                StairedGridTile(1.0, 8 / 5),
+              ],
+            ),
+            childrenDelegate: SliverChildBuilderDelegate(
+                  (context, index) => Stack(
                 children: [
                   Container(
                     width: 300,
@@ -73,10 +68,8 @@ class MyFavouriteScreen extends StatelessWidget {
                               children: [
                                 const Icon(Icons.star_rate_outlined),
                                 Text('15 review',
-                                    style: Theme
-                                        .of(context)
-                                        .textTheme
-                                        .headline1),
+                                    style:
+                                    Theme.of(context).textTheme.headline1),
                               ],
                             )
                           ],
@@ -84,13 +77,13 @@ class MyFavouriteScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-
-                ]
-                ,
+                ],
               ),
-          childCount: 10,
+              childCount: 10,
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }
