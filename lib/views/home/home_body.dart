@@ -20,7 +20,7 @@ class HomeBody extends StatelessWidget {
                 : MainAxisAlignment.start,
             children: [
               Container(
-                width: 370,
+                width: 350,
                 height: 250,
                 alignment: AlignmentDirectional.bottomCenter,
                 decoration: BoxDecoration(

@@ -61,6 +61,8 @@
   "details_your_requirement": "Details Your Requirement",
   "thank_you": "Thank You",
   "submitted": "Your requirement has been submitted successfully ... After verification , matching properties will be send to your email inbox.",
-  "back_to_home": "Back to Home"
+  "back_to_home": "Back to Home",
+  "select_location": "Select location",
+  "property_type": "Property type"
 
 }

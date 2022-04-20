@@ -15,11 +15,11 @@ class HomeEndDrawer extends StatelessWidget {
       child: Drawer(
         backgroundColor: AppColors.primary,
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: ListView(
             children: [
               Image.asset(AppConstants.logo, height: 50, width: 50,),
-              const SizedBox(height: 40.0),
+              const SizedBox(height: 20.0),
               Row(
                 children: [
                   const Icon(
@@ -143,7 +143,7 @@ class HomeEndDrawer extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline1),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
 
               TextButton(
                 onPressed: () => Navigator.of(context).push(

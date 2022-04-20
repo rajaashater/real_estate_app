@@ -13,6 +13,8 @@ class DetailsRequirementScreen extends StatelessWidget {
   DetailsRequirementScreen({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
   String? _city;
+  String?  _type;
+  String? _numberOfRooms;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class DetailsRequirementScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(30),
-        child:  ListView(
+        child: ListView(
           children: [
             Text(
               'go_it'.tr(),
@@ -38,29 +40,32 @@ class DetailsRequirementScreen extends StatelessWidget {
             const SizedBox(
               height: 30.0,
             ),
-            KDropDownButtonFormField<String>(
-              label: const Text('select_property_type'),
-              items: [
-                'apartment',
-                'house',
-                'duplex',
-                'land',
-                'hotel',
-                'office',
-                'farm'
-              ]
-                  .map(
-                      (e) => DropdownMenuItem<String>(value: e, child: Text(e)))
-                  .toList(),
-
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
             Form(
               key: _formKey,
               child: Column(
                 children: [
+                  KDropDownButtonFormField<String>(
+                    onSaved: (value) => _type = value,
+                    label: Text('property_type'.tr()),
+                    items: [
+                      'apartment',
+                      'house',
+                      'duplex',
+                      'land',
+                      'hotel',
+                      'office',
+                      'farm'
+                    ]
+                        .map((e) =>
+                            DropdownMenuItem<String>(value: e, child: Text(e)))
+                        .toList(),
+                    validator: qValidator([
+                      IsRequired(),
+                    ]),
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
                   TextFormField(
                     onSaved: (value) => _city = value,
                     keyboardType: TextInputType.streetAddress,
@@ -71,52 +76,63 @@ class DetailsRequirementScreen extends StatelessWidget {
                       IsRequired(),
                     ]),
                   ),
-                  ],
+                ],
               ),
             ),
-                  const SizedBox(
-                    height: 30.0,
-                  ),
-
-                    Text('price'.tr(),
-                        style: Theme.of(context).textTheme.headline1),
-
-                  KRangeSlider(
-                    min: 50.0,
-                    max: 1000.0,
-                    unit: 'SYP',
-                    onChanged: (value){
-                      //TODO Save value
-                    },
-                  ),
-            const SizedBox(height: 20.0,),
+            const SizedBox(
+              height: 30.0,
+            ),
+            Text('price'.tr(), style: Theme.of(context).textTheme.headline1),
+            KRangeSlider(
+              min: 50.0,
+              max: 1000.0,
+              unit: 'SYP',
+              onChanged: (value) {
+                //TODO Save value
+              },
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
             Text('number_of_rooms'.tr(),
                 style: Theme.of(context).textTheme.headline1),
             const SizedBox(height: 10),
             KChoicesWrap<int>(
               list: AppConstants.numberOfRoomsList,
-              onItemSelected: (dynamic value){
+              onItemSelected: (dynamic value) {
+                _numberOfRooms = value;
                 //TODO Save value
               },
             ),
-            const SizedBox(height: 50.0,),
-
+            const SizedBox(
+              height: 50.0,
+            ),
             SizedBox(
               width: double.infinity,
               height: 35.0,
               child: ElevatedButton(
-                onPressed: ()  => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => AboutYouScreen())),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                  }
+                  if (_numberOfRooms != null) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => AboutYouScreen()));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: AppColors.primary,
+                        content: Text(
+                          'number of rooms is required'.tr(),
+                          style: Theme.of(context).textTheme.headline1,
+                        )));
+                  }
+                },
                 child: Text('continue'.tr(),
                     style: Theme.of(context).textTheme.headline1),
               ),
             ),
-
-
           ],
         ),
-
-
       ),
     );
   }

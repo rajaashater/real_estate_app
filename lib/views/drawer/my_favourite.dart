@@ -9,15 +9,16 @@ class MyFavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return  Stack(
       children: [
-        Positioned.fill(
-            child:
-            Image.asset('assets/images/packground.jpg', fit: BoxFit.cover)),
+        // Positioned.fill(
+        //     child:
+        //         Image.asset('assets/images/packground.jpg', fit: BoxFit.cover)),
         Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           appBar: AppBar(
-            title: Text('my_properties'.tr(),
+            elevation: 0.0,
+            title: Text('my_favourite'.tr(),
                 style: Theme.of(context).textTheme.headline3),
 
           ),
@@ -37,16 +38,10 @@ class MyFavouriteScreen extends StatelessWidget {
                   (context, index) => Stack(
                 children: [
                   Container(
-                    width: 300,
-                    height: 200,
+                    width: 350,
+                    height: 250,
                     alignment: AlignmentDirectional.bottomCenter,
                     decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                            offset: Offset(1.0, 2.0),
-                            blurRadius: 6.0,
-                            color: Colors.black45)
-                      ],
                       color: AppColors.secondary,
                       image: const DecorationImage(
                           image: AssetImage('assets/images/reals.jpg'),

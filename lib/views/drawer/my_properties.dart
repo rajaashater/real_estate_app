@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../utils/theme/app_colors.dart';
@@ -58,14 +60,14 @@ class MyPropertiesScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            const Icon(Icons.favorite),
+                            //const Icon(Icons.favorite),
                             Text("type".tr()),
                             Column(
                               children: [
                                 const Icon(Icons.star_rate_outlined),
                                 Text('15 review',
                                     style:
-                                        Theme.of(context).textTheme.headline1),
+                                    Theme.of(context).textTheme.headline1),
                               ],
                             )
                           ],
@@ -73,6 +75,26 @@ class MyPropertiesScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+
+                  PositionedDirectional(
+                    width:75.0,
+                    height: 80.0,
+                    top:-7,
+                    start:-5,
+                    child: Stack(
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+
+                        ),
+                        Text('sale'.tr(),style:Theme.of(context).textTheme.headline4),
+                      ],
+
+                    )
+                  )
                 ],
               ),
               childCount: 10,

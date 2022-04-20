@@ -25,20 +25,20 @@ class PostRequirementScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text('give_description_of_requirement'.tr(),style: Theme.of(context).textTheme.headline3!.copyWith(color: AppColors.primary)),
-                  const SizedBox(height: 40.0,),
+                  const SizedBox(height: 80.0,),
                   Text('I_would_like_to'.tr(),
                       style: Theme.of(context).textTheme.headline2),
                   const SizedBox(
-                    height: 40.0,
+                    height: 60.0,
                   ),
                   KChoicesWrap<String>(
-                    spacing: 20.0,
+                    spacing: 30.0,
                     list: AppConstants.ownershipList,
                     onItemSelected: (dynamic value){
                       _ownership = value;
                     },
                   ),
-                  const SizedBox(height: 200),
+                  const SizedBox(height: 150),
 
                   SizedBox(
                     width: double.infinity,
@@ -50,19 +50,13 @@ class PostRequirementScreen extends StatelessWidget {
                               MaterialPageRoute(builder: (_) => DetailsRequirementScreen()));
                         }
                         else{
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('ownership is required')));
+                          ScaffoldMessenger.of(context).showSnackBar( SnackBar(backgroundColor: AppColors.primary,content: Text('ownership is required'.tr(), style: Theme.of(context).textTheme.headline1)));
                         }
                       },
                       child: Text('next'.tr(),
                           style: Theme.of(context).textTheme.headline1),
                     ),
                   ),
-
-
-
-
-
-
                 ],
               ),
             ),

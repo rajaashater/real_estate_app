@@ -1,5 +1,11 @@
 {
   "damascus" : "دمشق",
+  "baramkeh": "البرامكة",
+  "mazeh": "مزة",
+  "bab mussala": "باب مصلى",
+  "bab tumah": "باب توما",
+  "almalki": "المالكي",
+  "kafarsoseh": "كفر سوسة",
   "login" : "تسجيل الدخول",
   "sign_out" : "تسجيل خروج",
   "email" : "بريد الالكتروني",
@@ -22,7 +28,7 @@
   "bedroom": "غرفة نوم",
   "space": "المساحة",
   "price": "السعر",
-  "welcome":"أهلاً وسهلا",
+  "welcome":"أهلاً بك",
   "sign_up": "تسجيل دخول",
   "create_your_account":"قم يإنشاء حسابك",
   "name": "الاسم",
@@ -54,7 +60,13 @@
   "submit": "إرسال",
   "give_description_of_requirement":"قدم لنا وصفًا كاملاً لمتطلباتك ... وسنطابقها مع أفضل الخيارات المتاحة على KEY IN CLICK",
   "I_would_like_to": "أريد ",
-  "request_property": "اطلب عقارك"
-
-
+  "request_property": "اطلب عقارك",
+  "go_it": "هيا بنا !!!",
+  "what_type_of_property_you_need": "ما نوع الممتلكات التي تحتاجها؟",
+  "details_your_requirement": "تفاصيل متطلباتك",
+  "thank_you": "شكراً لك",
+  "submitted": "تم إرسال متطلباتك بنجاح ... بعد التحقق ، سيتم إرسال الخصائص المطابقة إلى صندوق البريد الإلكتروني الخاص بك.",
+  "back_to_home": "العودة للصفحة الرئيسية",
+  "select_location": "حدد الموقع",
+  "property_type": "نوع الملكية"
 }
