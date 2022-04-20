@@ -15,42 +15,43 @@ class HomeBody extends StatelessWidget {
       itemCount: 20,
       itemBuilder: (context, index) {
         return Row(
-            mainAxisAlignment: index % 2 == 0
-                ? MainAxisAlignment.end
-                : MainAxisAlignment.start,
             children: [
-              Container(
-                width: 350,
-                height: 250,
-                alignment: AlignmentDirectional.bottomCenter,
-                decoration: BoxDecoration(
-                    color: AppColors.secondary,
-                    image: const DecorationImage(
-                        image: AssetImage('assets/images/reals.jpg'),
-                        fit: BoxFit.cover),
-                    borderRadius: BorderRadiusDirectional.only(
-                      topStart: Radius.circular(index % 2 == 0 ? 20 : 0),
-                      topEnd: Radius.circular(index % 2 == 0 ? 0 : 20),
-                      bottomStart: Radius.circular(index % 2 == 0 ? 20 : 0),
-                      bottomEnd: Radius.circular(index % 2 == 0 ? 0 : 20),
-                    )),
-                clipBehavior: Clip.antiAlias,
+              if(index % 2 == 0) const Spacer(),
+              Expanded(
+                flex: 9,
                 child: Container(
-                  height: 50,
-                  color: AppColors.primary,
-                  child: DefaultTextStyle.merge(
-                    style: const TextStyle(color: Colors.white),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        const Text('1200 SYP'),
-                        Text("Villa".tr()),
-                        const Icon(Icons.favorite),
-                      ],
+                  height: 250,
+                  alignment: AlignmentDirectional.bottomCenter,
+                  decoration: BoxDecoration(
+                      color: AppColors.secondary,
+                      image: const DecorationImage(
+                          image: AssetImage('assets/images/reals.jpg'),
+                          fit: BoxFit.cover),
+                      borderRadius: BorderRadiusDirectional.only(
+                        topStart: Radius.circular(index % 2 == 0 ? 20 : 0),
+                        topEnd: Radius.circular(index % 2 == 0 ? 0 : 20),
+                        bottomStart: Radius.circular(index % 2 == 0 ? 20 : 0),
+                        bottomEnd: Radius.circular(index % 2 == 0 ? 0 : 20),
+                      )),
+                  clipBehavior: Clip.antiAlias,
+                  child: Container(
+                    height: 50,
+                    color: AppColors.primary,
+                    child: DefaultTextStyle.merge(
+                      style: const TextStyle(color: Colors.white),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Text('1200 SYP'),
+                          Text("Villa".tr()),
+                          const Icon(Icons.favorite),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
+              if(!(index % 2 == 0)) const Spacer()
             ]);
       },
     );

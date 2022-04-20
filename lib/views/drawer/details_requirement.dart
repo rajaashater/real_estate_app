@@ -14,7 +14,8 @@ class DetailsRequirementScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   String? _city;
   String?  _type;
-  String? _numberOfRooms;
+  int? _numberOfRooms;
+  //TODO implement price
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +45,8 @@ class DetailsRequirementScreen extends StatelessWidget {
               key: _formKey,
               child: Column(
                 children: [
-                  KDropDownButtonFormField<String>(
-                    onSaved: (value) => _type = value,
+                  KDropDownButtonFormField(
+                    onSaved: (dynamic value) => _type = value,
                     label: Text('property_type'.tr()),
                     items: [
                       'apartment',
@@ -59,9 +60,11 @@ class DetailsRequirementScreen extends StatelessWidget {
                         .map((e) =>
                             DropdownMenuItem<String>(value: e, child: Text(e)))
                         .toList(),
-                    validator: qValidator([
-                      IsRequired(),
-                    ]),
+                    validator: (value){
+                      if(value == null){
+                        return 'required';
+                      }
+                    },
                   ),
                   const SizedBox(
                     height: 20.0,
@@ -101,7 +104,6 @@ class DetailsRequirementScreen extends StatelessWidget {
               list: AppConstants.numberOfRoomsList,
               onItemSelected: (dynamic value) {
                 _numberOfRooms = value;
-                //TODO Save value
               },
             ),
             const SizedBox(
@@ -114,17 +116,21 @@ class DetailsRequirementScreen extends StatelessWidget {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                  }
-                  if (_numberOfRooms != null) {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => AboutYouScreen()));
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        backgroundColor: AppColors.primary,
-                        content: Text(
-                          'number of rooms is required'.tr(),
-                          style: Theme.of(context).textTheme.headline1,
-                        )));
+                    if (_numberOfRooms == null) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: AppColors.primary,
+                          content: Text(
+                            'number of rooms is required'.tr(),
+                            style: Theme.of(context).textTheme.headline1,
+                          )));
+                    }
+                    // else if(){
+                      //TODO implement price
+                    // }
+                    else {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => AboutYouScreen()));
+                    }
                   }
                 },
                 child: Text('continue'.tr(),
