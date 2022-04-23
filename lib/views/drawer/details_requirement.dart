@@ -88,7 +88,6 @@ class DetailsRequirementScreen extends StatelessWidget {
             ),
             Text('price'.tr(), style: Theme.of(context).textTheme.headline1),
             KRangeSlider(
-              onSaved: (dynamic value) => _price = value,
               min: 50.0,
               max: 1000.0,
               unit: 'SYP',

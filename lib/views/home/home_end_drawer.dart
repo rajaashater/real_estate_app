@@ -5,8 +5,6 @@ import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/components/components.dart';
 import 'package:real_estate_app/views/home/add_property_screen.dart';
 
-import '../drawer/post_requirement_screen.dart';
-
 class HomeEndDrawer extends StatelessWidget {
   const HomeEndDrawer({Key? key}) : super(key: key);
   @override
@@ -104,7 +102,6 @@ class HomeEndDrawer extends StatelessWidget {
                   size: 10,
                 ),
                 const SizedBox(width: 5,),
-
                 Text('number_of_rooms'.tr(),
                     style: Theme.of(context).textTheme.headline1),
               ]),
@@ -145,14 +142,11 @@ class HomeEndDrawer extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-
               TextButton(
                 onPressed: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) => AddPropertyScreen())),
                 child: Text('request_property'.tr()),
               ),
-
-
             ],
           ),
         ),

@@ -15,7 +15,7 @@ class AddPropertyScreen extends StatelessWidget {
   double? _price;
   String? _description;
   String? _status;
-  String? _posttype;
+  String? _postType;
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +48,9 @@ class AddPropertyScreen extends StatelessWidget {
               const SizedBox(height: 10),
               KChoicesWrap<String>(
                 spacing: 20.0,
-                list: AppConstants.postList,
+                list: context.locale.languageCode == 'en' ? AppConstants.postListEn : AppConstants.postListAr,
                 onItemSelected: (dynamic value) {
-                  _posttype = value;
-                  //TODO Save value
+                  _postType = value;
                 },
               ),
               const SizedBox(height: 30),
@@ -85,7 +84,7 @@ class AddPropertyScreen extends StatelessWidget {
                     ),
 
                     TextFormField(
-                      onSaved: (dynamic value) => _price = value,
+                      onSaved: (dynamic value) => _price = double.tryParse(value),
                       keyboardType: TextInputType.streetAddress,
                       decoration: InputDecoration(
                         labelText: 'add_price(SYP)'.tr(),
@@ -155,7 +154,7 @@ class AddPropertyScreen extends StatelessWidget {
                               style: Theme.of(context).textTheme.headline1,
                             )));
                       }
-                    if (_posttype == null) {
+                    if (_postType == null) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             backgroundColor: AppColors.primary,
                             content: Text(
