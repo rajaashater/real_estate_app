@@ -63,6 +63,13 @@
   "submitted": "Your requirement has been submitted successfully ... After verification , matching properties will be send to your email inbox.",
   "back_to_home": "Back to Home",
   "select_location": "Select location",
-  "property_type": "Property type"
+  "property_type": "Property type",
+  "add_property": "Add Property",
+  "post_your_property_in_simple_steps": "Post your property in simple steps:",
+  "i_want_to": "I Want to",
+  "required": "Required",
+  "current_status": "Current Status",
+  "add_price(SYP)": "Add Price(SYP)",
+  "next": "Next"
 
 }

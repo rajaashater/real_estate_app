@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/components/components.dart';
+import 'package:real_estate_app/views/home/add_property_screen.dart';
 
 import '../drawer/post_requirement_screen.dart';
 
@@ -147,7 +148,7 @@ class HomeEndDrawer extends StatelessWidget {
 
               TextButton(
                 onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => PostRequirementScreen())),
+                    MaterialPageRoute(builder: (_) => AddPropertyScreen())),
                 child: Text('request_property'.tr()),
               ),
 

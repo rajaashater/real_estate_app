@@ -26,6 +26,11 @@ class AboutYouScreen extends StatelessWidget {
           padding: const EdgeInsets.all(40.0),
           child: Column(
             children: [
+              Text('please_tell_us_about_yourself'.tr(),
+                  style: Theme.of(context).textTheme.headline3),
+              const SizedBox(
+                height: 30.0,
+              ),
 
 
               Form(

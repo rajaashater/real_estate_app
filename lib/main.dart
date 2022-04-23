@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_theme.dart';
+import 'package:real_estate_app/views/home/add_property_screen.dart';
 import 'package:real_estate_app/views/home/home_screen.dart';
 
 Future<void> main ()
