@@ -33,7 +33,7 @@ class PostRequirementScreen extends StatelessWidget {
                   ),
                   KChoicesWrap<String>(
                     spacing: 30.0,
-                    list: AppConstants.ownershipList,
+                    list: context.locale.languageCode == 'en' ? AppConstants.ownershipListEn : AppConstants.ownershipListAr,
                     onItemSelected: (dynamic value){
                       _ownership = value;
                     },

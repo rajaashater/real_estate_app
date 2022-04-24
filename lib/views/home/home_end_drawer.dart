@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/components/components.dart';
+import 'package:real_estate_app/views/drawer/post_requirement_screen.dart';
 import 'package:real_estate_app/views/home/add_property_screen.dart';
 
 class HomeEndDrawer extends StatelessWidget {
@@ -48,11 +49,11 @@ class HomeEndDrawer extends StatelessWidget {
               Column(
                 children: [
                   KDropDownButtonFormField<String>(
-                    label: const Text('select_location'),
+                    label:  Text('select_location'.tr()),
                       items: ['city1', 'city2', 'city3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList()),
                   const SizedBox(height: 20),
                   KDropDownButtonFormField<String>(
-                    label: const Text('property_type'),
+                    label:  Text('property_type'.tr()),
                     items: ['type1', 'type2', 'type3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList(),
                   ),
                 ],
@@ -126,7 +127,7 @@ class HomeEndDrawer extends StatelessWidget {
               const SizedBox(height: 10),
               KChoicesWrap<String>(
                 spacing: 20.0,
-                list: AppConstants.ownershipList,
+                list: context.locale.languageCode == 'en' ? AppConstants.ownershipListEn : AppConstants.ownershipListAr,
                 onItemSelected: (dynamic value){
                   //TODO Save value
                 },
@@ -144,7 +145,7 @@ class HomeEndDrawer extends StatelessWidget {
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => AddPropertyScreen())),
+                    MaterialPageRoute(builder: (_) => PostRequirementScreen())),
                 child: Text('request_property'.tr()),
               ),
             ],

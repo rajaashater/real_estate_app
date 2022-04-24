@@ -70,6 +70,9 @@
   "required": "Required",
   "current_status": "Current Status",
   "add_price(SYP)": "Add Price(SYP)",
-  "next": "Next"
+  "next": "Next",
+  "is_required": "Is Required",
+  "continue": "Continue",
+  "done_successfully": "Done Successfully"
 
 }

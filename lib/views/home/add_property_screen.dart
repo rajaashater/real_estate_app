@@ -1,8 +1,7 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
-import 'package:real_estate_app/views/home/post_done_screen.dart';
-
 import '../../utils/theme/app_colors.dart';
 import '../../utils/theme/app_constants.dart';
 import '../components/k_choices_wrap.dart';
@@ -48,7 +47,9 @@ class AddPropertyScreen extends StatelessWidget {
               const SizedBox(height: 10),
               KChoicesWrap<String>(
                 spacing: 20.0,
-                list: context.locale.languageCode == 'en' ? AppConstants.postListEn : AppConstants.postListAr,
+                list: context.locale.languageCode == 'en'
+                    ? AppConstants.postListEn
+                    : AppConstants.postListAr,
                 onItemSelected: (dynamic value) {
                   _postType = value;
                 },
@@ -82,9 +83,9 @@ class AddPropertyScreen extends StatelessWidget {
                     const SizedBox(
                       height: 30.0,
                     ),
-
                     TextFormField(
-                      onSaved: (dynamic value) => _price = double.tryParse(value),
+                      onSaved: (dynamic value) =>
+                          _price = double.tryParse(value),
                       keyboardType: TextInputType.streetAddress,
                       decoration: InputDecoration(
                         labelText: 'add_price(SYP)'.tr(),
@@ -93,7 +94,6 @@ class AddPropertyScreen extends StatelessWidget {
                         IsRequired(),
                       ]),
                     ),
-
                     const SizedBox(
                       height: 30.0,
                     ),
@@ -107,7 +107,6 @@ class AddPropertyScreen extends StatelessWidget {
                         IsRequired(),
                       ]),
                     ),
-
                   ],
                 ),
               ),
@@ -128,15 +127,18 @@ class AddPropertyScreen extends StatelessWidget {
               const SizedBox(height: 10),
               KChoicesWrap<String>(
                 spacing: 20.0,
-                list: AppConstants.statusList,
+                list: context.locale.languageCode == 'en'
+                    ? AppConstants.statusListEn
+                    : AppConstants.statusListAr,
                 onItemSelected: (dynamic value) {
                   _status = value;
                   //TODO Save value
                 },
               ),
-              const SizedBox(height: 20.0,),
-
-               const SizedBox(
+              const SizedBox(
+                height: 20.0,
+              ),
+              const SizedBox(
                 height: 20.0,
               ),
               SizedBox(
@@ -150,20 +152,37 @@ class AddPropertyScreen extends StatelessWidget {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             backgroundColor: AppColors.primary,
                             content: Text(
-                              ' Is required'.tr(),
+                              'is_required'.tr(),
                               style: Theme.of(context).textTheme.headline1,
                             )));
                       }
-                    if (_postType == null) {
+                      if (_postType == null) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             backgroundColor: AppColors.primary,
                             content: Text(
-                              ' is required'.tr(),
+                              'is_required'.tr(),
                               style: Theme.of(context).textTheme.headline1,
-                            )));}
-                  else {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => PostDoneScreen()));
+                            )));
+                      } else {
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.SUCCES,
+                          animType: AnimType.BOTTOMSLIDE,
+                          body: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 15.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  'done_successfully'.tr(),
+                                  style: Theme.of(context).textTheme.headline5,
+                                ),
+                                const SizedBox(
+                                  height: 25.0,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ).show();
                       }
                     }
                   },

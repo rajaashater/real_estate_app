@@ -68,5 +68,14 @@
   "submitted": "تم إرسال متطلباتك بنجاح ... بعد التحقق ، سيتم إرسال الخصائص المطابقة إلى صندوق البريد الإلكتروني الخاص بك.",
   "back_to_home": "العودة للصفحة الرئيسية",
   "select_location": "حدد الموقع",
-  "property_type": "نوع الملكية"
+  "property_type": "نوع الملكية",
+  "post_your_property_in_simple_steps": "انشر عقارك بخطوات بسيطة:",
+  "i_want_to": "أريد",
+  "required": "مطلوب",
+  "current_status": "حالة العقار الحالية",
+  "add_price(SYP)": "أضف السعر(بالليرة السورية)",
+  "next": "التالي",
+  "is_required": "مطلوب تعبئة جميع الحقول",
+  "continue": "استمر",
+  "done_successfully": "تم بنجاح"
 }

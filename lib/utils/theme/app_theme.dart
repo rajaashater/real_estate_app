@@ -28,6 +28,11 @@ abstract class AppTheme {
         fontWeight: FontWeight.normal,
         color:AppColors.secondary,
       ),
+      headline5: TextStyle(
+        fontSize: 25.0,
+        fontWeight: FontWeight.normal,
+        color:AppColors.primary,
+      ),
 
 
       subtitle1: TextStyle(
