@@ -7,6 +7,7 @@ abstract class AppTheme {
     primarySwatch: AppUtils.createMaterialColor(AppColors.primary),
     fontFamily:'TwCenClassMTStd',
     textSelectionTheme: TextSelectionThemeData(cursorColor: AppColors.secondary, selectionColor: AppColors.secondary, selectionHandleColor: AppColors.secondary.withOpacity(0.6)),
+    appBarTheme: const AppBarTheme(centerTitle: true),
     textTheme: const TextTheme(
       headline1: TextStyle(
         fontSize: 15.0,
