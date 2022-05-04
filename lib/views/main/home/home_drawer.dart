@@ -5,10 +5,10 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/drawer/login_screen.dart';
+import 'package:real_estate_app/views/drawer/my_favourite.dart';
+import 'package:real_estate_app/views/drawer/my_properties.dart';
+import 'package:real_estate_app/views/drawer/profile_screen.dart';
 
-import '../drawer/my_favourite.dart';
-import '../drawer/my_properties.dart';
-import '../drawer/profile_screen.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({Key? key}) : super(key: key);

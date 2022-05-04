@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:real_estate_app/views/main/main_screen.dart';
 
 import '../../utils/theme/app_colors.dart';
-import '../home/home_screen.dart';
 
 class ThankYouScreen extends StatelessWidget {
   const ThankYouScreen({Key? key}) : super(key: key);
@@ -50,7 +50,7 @@ class ThankYouScreen extends StatelessWidget {
               height: 35.0,
               child: ElevatedButton(
                 onPressed: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (_) => const HomeScreen())),
+                    MaterialPageRoute(builder: (_) => MainScreen())),
                 child: Text('back_to_home'.tr(),
                     style: Theme.of(context).textTheme.headline1),
               ),

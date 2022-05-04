@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 
 class HomeBottomNavigationBar extends StatelessWidget {
-  const HomeBottomNavigationBar({Key? key}) : super(key: key);
-
+  const HomeBottomNavigationBar({Key? key, this.onChange}) : super(key: key);
+  final void Function(int)? onChange;
   @override
   Widget build(BuildContext context) {
     return FluidNavBar(
+      onChange: onChange,
       style: const FluidNavBarStyle(
           barBackgroundColor: AppColors.primary,
           iconBackgroundColor: Colors.white,
@@ -15,7 +16,8 @@ class HomeBottomNavigationBar extends StatelessWidget {
           iconSelectedForegroundColor: AppColors.secondary),
       icons: [
         FluidNavBarIcon(icon: Icons.home, backgroundColor: Colors.white),
-        FluidNavBarIcon(icon: Icons.person, backgroundColor: Colors.white),
+        //TODO replace true with isSignIn variable
+        if(true) FluidNavBarIcon(icon: Icons.person, backgroundColor: Colors.white),
         FluidNavBarIcon(icon: Icons.add_business, backgroundColor: Colors.white)
       ],
     );

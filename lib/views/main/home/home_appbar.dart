@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:real_estate_app/views/home/home_end_drawer.dart';
+import 'package:real_estate_app/views/main/home/home_end_drawer.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({Key? key}) : super(key: key);
