@@ -73,6 +73,7 @@ abstract class AppTheme {
         inactiveTrackColor: Colors.white,
     ),
     chipTheme: const ChipThemeData(selectedColor: AppColors.secondary),
+    tabBarTheme: TabBarTheme(labelColor: Colors.black)
   );
   //textTheme: TextStyle(
   //fontFamily: 'TwCenClassMTStd-Regular.otf');
