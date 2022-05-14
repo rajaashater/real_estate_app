@@ -5,8 +5,7 @@ import 'package:real_estate_app/utils/theme/app_theme.dart';
 import 'package:real_estate_app/views/main/home/property_details_screen.dart';
 import 'package:real_estate_app/views/main/main_screen.dart';
 
-Future<void> main ()
-async {
+Future<void> main () async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
@@ -27,7 +26,7 @@ class RealEstate extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      home: PropertyDetailsScreen(),
+      home: MainScreen(),
     );
   }
 }

@@ -32,11 +32,9 @@ class PropertyDetailsScreen extends StatelessWidget {
             ),
             Positioned(
               top: 0,
-              child: Container(
-                child: AppBar(
-                  backgroundColor: AppColors.primary,
-                  title: Text('House for sale',style: Theme.of(context).textTheme.headline3,),
-                ),
+              child: AppBar(
+                backgroundColor: AppColors.primary,
+                title: Text('House for sale',style: Theme.of(context).textTheme.headline3,),
               ),
             ),
             Positioned(
@@ -73,8 +71,8 @@ class PropertyDetailsScreen extends StatelessWidget {
                           ),
                           padding: const EdgeInsets.all(2.0),
                             child:
-                              Icon(Icons.favorite),),
-                        SizedBox(width: 5.0,),
+                              const Icon(Icons.favorite),),
+                        const SizedBox(width: 5.0,),
                         Container(
                           decoration: const BoxDecoration(
                             color: Colors.white,
@@ -82,8 +80,8 @@ class PropertyDetailsScreen extends StatelessWidget {
                           ),
                           padding: const EdgeInsets.all(2.0),
                           child:
-                          Icon(Icons.location_on_outlined),),
-                        SizedBox(width: 5.0,),
+                          const Icon(Icons.location_on_outlined),),
+                        const SizedBox(width: 5.0,),
                         Container(
                           decoration: const BoxDecoration(
                             color: Colors.white,
@@ -91,7 +89,7 @@ class PropertyDetailsScreen extends StatelessWidget {
                           ),
                           padding: const EdgeInsets.all(2.0),
                           child:
-                          Icon(Icons.house),),
+                          const Icon(Icons.house),),
 
 
 

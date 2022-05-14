@@ -1,7 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 
 
-import 'package:easy_localization/easy_localization.dart';
 abstract class AppConstants{
   ///Images
   static const String imagesPrefix = 'assets/images';

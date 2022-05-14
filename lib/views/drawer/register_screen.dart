@@ -1,8 +1,8 @@
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/utils/theme/app_constants.dart';
 import 'package:real_estate_app/views/drawer/password_text_from_field.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../utils/theme/app_colors.dart';
 

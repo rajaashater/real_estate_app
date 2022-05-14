@@ -67,12 +67,12 @@ abstract class AppTheme {
           borderSide: BorderSide(color: Theme.of(context).colorScheme.error),
           borderRadius: BorderRadius.circular(24)),
     ),
-    sliderTheme: SliderThemeData(
+    sliderTheme: const SliderThemeData(
         thumbColor: AppColors.secondary,
         activeTrackColor: AppColors.secondary,
         inactiveTrackColor: Colors.white,
     ),
-    chipTheme: ChipThemeData(selectedColor: AppColors.secondary),
+    chipTheme: const ChipThemeData(selectedColor: AppColors.secondary),
   );
   //textTheme: TextStyle(
   //fontFamily: 'TwCenClassMTStd-Regular.otf');

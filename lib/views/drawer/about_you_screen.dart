@@ -94,7 +94,7 @@ class AboutYouScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => ThankYouScreen())),
+                      MaterialPageRoute(builder: (_) => const ThankYouScreen())),
                   //TODO API request
                   child: Text('continue'.tr(),
                       style: Theme.of(context).textTheme.headline1),
