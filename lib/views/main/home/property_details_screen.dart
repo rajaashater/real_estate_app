@@ -8,16 +8,24 @@ class PropertyDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar:AppBar(
+          elevation: 0,
+        backgroundColor: AppColors.primary,
+        title: Text('House for sale',style: Theme.of(context).textTheme.headline3,),),
       body: Stack(
           children:[
 
             CarouselSlider(
               items: [
                 //TODO Apis
-                Image.asset('assets/images/reals.jpg'),
-                Image.asset('assets/images/personal.jpg'),
-                Image.asset('assets/images/logo.png'),
-
+                Image.asset('assets/images/h1 (1).jpg'),
+                Image.asset('assets/images/h1 (2).jpg'),
+                Image.asset('assets/images/h1 (3).jpg'),
+                Image.asset('assets/images/h1 (4).jpg'),
+                Image.asset('assets/images/h1 (5).jpg'),
+                Image.asset('assets/images/h1 (6).jpg'),
+                Image.asset('assets/images/h1 (7).jpg'),
+                Image.asset('assets/images/h1 (8).jpg'),
 
               ],
               options:
@@ -30,38 +38,35 @@ class PropertyDetailsScreen extends StatelessWidget {
                 initialPage: 2,
               ),
             ),
-            Positioned(
-              top: 0,
-              child: AppBar(
-                backgroundColor: AppColors.primary,
-                title: Text('House for sale',style: Theme.of(context).textTheme.headline3,),
-              ),
-            ),
-            Positioned(
+            //Scaffold(appBar:AppBar(backgroundColor: AppColors.primary,title: Text('House for sale',style: Theme.of(context).textTheme.headline3,),),),
+            PositionedDirectional(
               bottom: 0,
-              left: 0,
+              start: 0,
               child: Stack(
                 children: [
-                  Container(
-                        height: 100,
-                        width: 400,
-                        alignment: AlignmentDirectional.bottomCenter,
-                          
-                        decoration: BoxDecoration(
-                          color: AppColors.primary,
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        child:
-                        Positioned(
-                            top:2,
-                            right:1,
-                            child: Text('127000000 SYP',style:  Theme.of(context).textTheme.headline3,))
+                  PositionedDirectional.fill(
+                    top:200,
+                    child: Container(
+                          height: 300,
+                          width: 400,
+                          alignment: AlignmentDirectional.bottomCenter,
+
+                          decoration: BoxDecoration(
+                            color: AppColors.primary,
+                            borderRadius: BorderRadius.circular(20)
+                          ),
+                          child:
+                          PositionedDirectional(
+                              top:2,
+                              end:1,
+                              child: Text('127000000 SYP',style:  Theme.of(context).textTheme.headline3,))
 
 
+                    ),
                   ),
-                  Positioned(
-                    top:-4,
-                    left:1,
+                  PositionedDirectional(
+                    top:0,
+                    start:1,
                     child: Row(
                       children: [
                         Container(
@@ -91,8 +96,6 @@ class PropertyDetailsScreen extends StatelessWidget {
                           child:
                           const Icon(Icons.house),),
 
-
-
                       ],
                     ),
                   ),
@@ -102,6 +105,7 @@ class PropertyDetailsScreen extends StatelessWidget {
             )
 
         ]
+
       )
     );
   }
