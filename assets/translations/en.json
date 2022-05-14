@@ -73,6 +73,9 @@
   "next": "Next",
   "is_required": "Is Required",
   "continue": "Continue",
-  "done_successfully": "Done Successfully"
+  "done_successfully": "Done Successfully",
+  "current_password": "Current Password",
+  "new_password": "New Password",
+  "password_confirmation": "Password Confirmation"
 
 }
