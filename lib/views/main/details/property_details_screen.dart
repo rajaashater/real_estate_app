@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/views/main/details/services.dart';
 import 'package:real_estate_app/views/main/details/specification.dart';
-
-import '../../drawer/post_requirement_screen.dart';
 import 'location.dart';
 
 class PropertyDetailsScreen extends StatefulWidget {
@@ -34,36 +32,14 @@ class _PropertyDetailsScreenState extends State<PropertyDetailsScreen> with Sing
       body: Column(
         children: [
           CarouselSlider(
-            items: [
-              //TODO Apis
-              Image.asset('assets/images/h1 (1).jpg'),
-              Image.asset('assets/images/h1 (2).jpg'),
-              Image.asset('assets/images/h1 (3).jpg'),
-              Image.asset('assets/images/h1 (4).jpg'),
-              Image.asset('assets/images/h1 (5).jpg'),
-              Image.asset('assets/images/h1 (6).jpg'),
-              Image.asset('assets/images/h1 (7).jpg'),
-              Image.asset('assets/images/h1 (8).jpg'),
-            ],
+            items: List<Widget>.generate(8, (index) => Image.asset('assets/images/h1 (${index + 1}).jpg', fit: BoxFit.cover, width: double.infinity)),
             options:
             CarouselOptions(
               height: 250.0,
               autoPlay: true,
-              enlargeCenterPage: true,
-              viewportFraction:0,
-              aspectRatio: 0,
-              initialPage: 2,
-              enlargeStrategy: CenterPageEnlargeStrategy.scale,
-           //disableCenter: true,
-              //pageSnapping: true,
-             // enableInfiniteScroll: false,
-              //scrollDirection: Axis.vertical,
-
-
+              viewportFraction: 1
             ),
           ),
-
-
           TabBar(controller: _tabController, tabs: [Tab(text: 'specification'.tr()), Tab(text: 'services'.tr()), Tab(text: 'location'.tr() ,)]),
           Expanded(
             child: TabBarView(
