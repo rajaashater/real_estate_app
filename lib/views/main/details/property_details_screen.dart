@@ -47,24 +47,23 @@ class _PropertyDetailsScreenState extends State<PropertyDetailsScreen> with Sing
             ],
             options:
             CarouselOptions(
-              height: 150.0,
+              height: 250.0,
               autoPlay: true,
               enlargeCenterPage: true,
-              viewportFraction:1,
-              aspectRatio: 6,
+              viewportFraction:0,
+              aspectRatio: 0,
               initialPage: 2,
-           disableCenter: true,
-              pageSnapping: true,
+              enlargeStrategy: CenterPageEnlargeStrategy.scale,
+           //disableCenter: true,
+              //pageSnapping: true,
+             // enableInfiniteScroll: false,
+              //scrollDirection: Axis.vertical,
+
 
             ),
           ),
-          SizedBox(height: 30),
-          Padding(padding: const EdgeInsets.all(5.0),
-            child: Container(
-              child: Text('This house is located in Damascus_Malki it covers an area of 200 square meter , 4 bedrooms ,3 bathrooms ,2 hall , parking ... ', style:  Theme.of(context).textTheme.headline6,),
 
-            ),
-          ),
+
           TabBar(controller: _tabController, tabs: [Tab(text: 'specification'.tr()), Tab(text: 'services'.tr()), Tab(text: 'location'.tr() ,)]),
           Expanded(
             child: TabBarView(
