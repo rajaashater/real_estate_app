@@ -76,6 +76,23 @@
   "done_successfully": "Done Successfully",
   "current_password": "Current Password",
   "new_password": "New Password",
-  "password_confirmation": "Password Confirmation"
+  "password_confirmation": "Password Confirmation",
+  "green_tabu":"Green tabu",
+  "number_of_bedrooms: ": "BedRooms: ",
+  "number_of_bathrooms: ": "Bathrooms: ",
+  "number_of_hall: ": "Hall: ",
+  "number_of_floors: ": "Floor: ",
+  "house": "House",
+  "mosque": "Mosque",
+  "hotel": "Hotel",
+  "apartment": "Apartment",
+  "school": "School",
+  "restaurant": "Restaurant",
+  "gym": "Gym",
+  "supermarket": "Supermarket",
+  "playground": "Playground",
+  "green_park": "Green Park",
+  "parking": "Car Parking",
+  "internet": "Internet"
 
 }

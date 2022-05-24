@@ -30,10 +30,17 @@ abstract class AppTheme {
         color:AppColors.secondary,
       ),
       headline5: TextStyle(
-        fontSize: 25.0,
+        fontSize: 24.0,
         fontWeight: FontWeight.normal,
         color:AppColors.primary,
       ),
+      headline6: TextStyle(
+        fontSize: 17.0,
+        fontWeight: FontWeight.normal,
+        color:AppColors.secondary,
+      ),
+
+
 
 
       subtitle1: TextStyle(

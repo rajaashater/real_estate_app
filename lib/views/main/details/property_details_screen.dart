@@ -1,6 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
+import 'package:real_estate_app/views/main/details/services.dart';
+import 'package:real_estate_app/views/main/details/specification.dart';
+
+import '../../drawer/post_requirement_screen.dart';
+import 'location.dart';
 
 class PropertyDetailsScreen extends StatefulWidget {
   const PropertyDetailsScreen({Key? key}) : super(key: key);
@@ -24,7 +30,7 @@ class _PropertyDetailsScreenState extends State<PropertyDetailsScreen> with Sing
         appBar:AppBar(
           elevation: 0,
           backgroundColor: AppColors.primary,
-          title: Text('House for sale',style: Theme.of(context).textTheme.headline3,),),
+          title: Text('House for sale'.tr(),style: Theme.of(context).textTheme.headline3,),),
       body: Column(
         children: [
           CarouselSlider(
@@ -41,25 +47,49 @@ class _PropertyDetailsScreenState extends State<PropertyDetailsScreen> with Sing
             ],
             options:
             CarouselOptions(
-              height: 200.0,
+              height: 150.0,
               autoPlay: true,
               enlargeCenterPage: true,
-              viewportFraction: 0.9,
-              aspectRatio: 2.0,
+              viewportFraction:1,
+              aspectRatio: 6,
               initialPage: 2,
+           disableCenter: true,
+              pageSnapping: true,
+
             ),
           ),
           SizedBox(height: 30),
-          TabBar(controller: _tabController, tabs: [Tab(text: 'Tab1'), Tab(text: 'Tab2'), Tab(text: 'Tab3')]),
+          Padding(padding: const EdgeInsets.all(5.0),
+            child: Container(
+              child: Text('This house is located in Damascus_Malki it covers an area of 200 square meter , 4 bedrooms ,3 bathrooms ,2 hall , parking ... ', style:  Theme.of(context).textTheme.headline6,),
+
+            ),
+          ),
+          TabBar(controller: _tabController, tabs: [Tab(text: 'specification'.tr()), Tab(text: 'services'.tr()), Tab(text: 'location'.tr() ,)]),
           Expanded(
             child: TabBarView(
               controller: _tabController,
                 children: [
-              Text('Text1'), //TODO replace with specification widget
-              Text('Text2'), //TODO replace with services widget
-              Text('Text3'), //TODO replace with location widget
+                  Specification(),
+                  Services(),
+                  Location(),
             ]),
-          )
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('contact'.tr(),
+                    style: Theme.of(context).textTheme.headline1),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text('email'.tr(),style:  Theme.of(context).textTheme.headline6),
+              ),
+            ],
+          ),
+
           // Container(
           //       height: 300,
           //       width: 400,

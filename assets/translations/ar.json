@@ -80,6 +80,25 @@
   "done_successfully": "تم بنجاح",
   "current_password": "كلمة السر الحالية",
   "new_password": "كلمة السر الجديدة",
-  "password_confirmation": "التحقق من كلمة السر"
+  "password_confirmation": "التحقق من كلمة السر",
+  "green_tabu":"طابو أخضر",
+  "number_of_bedrooms: ": "غرف النوم",
+  "number_of_bathrooms: ": "الحمامات",
+  "number_of_hall: ": "غرف الاستقبال",
+  "number_of_floors": "طابق",
+  "house": "منزل",
+  "mosque": "مسجد",
+  "hotel": "فندق",
+  "school": "مدرسة",
+  "apartment": "شقة",
+  "supermarket": "سوبر ماركت",
+  "playground": "ملعب",
+  "green_park": "حديقة",
+  "restaurant": "مطعم",
+  "gym": "نادي رياضي",
+  "parking": "موقف سيارات",
+  "internet": "شبكة انترنت"
+
+
 
 }

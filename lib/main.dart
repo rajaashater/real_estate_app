@@ -2,7 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_theme.dart';
-import 'package:real_estate_app/views/main/home/property_details_screen.dart';
+import 'package:real_estate_app/views/drawer/my_properties.dart';
+import 'package:real_estate_app/views/main/details/property_details_screen.dart';
 import 'package:real_estate_app/views/main/main_screen.dart';
 
 Future<void> main () async {
