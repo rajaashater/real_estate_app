@@ -48,7 +48,8 @@ class _PropertyDetailsScreenState extends State<PropertyDetailsScreen> with Sing
                   Specification(),
                   Services(),
                   Location(),
-            ]),
+              ]
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
