@@ -3,7 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
-import 'package:real_estate_app/utils/theme/app_constants.dart';
+import 'package:real_estate_app/utils/app_constants.dart';
 import 'package:real_estate_app/views/drawer/login_screen.dart';
 import 'package:real_estate_app/views/drawer/my_favourite.dart';
 import 'package:real_estate_app/views/drawer/my_properties.dart';

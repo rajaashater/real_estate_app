@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/theme/app_colors.dart';
-import '../../utils/theme/app_constants.dart';
+import '../../utils/app_constants.dart';
 import '../components/k_choices_wrap.dart';
 import 'details_requirement.dart';
 

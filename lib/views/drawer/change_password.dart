@@ -4,7 +4,7 @@ import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/views/drawer/password_text_from_field.dart';
 
 import '../../utils/theme/app_colors.dart';
-import '../../utils/theme/app_constants.dart';
+import '../../utils/app_constants.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
   ChangePasswordScreen({Key? key}) : super(key: key);
