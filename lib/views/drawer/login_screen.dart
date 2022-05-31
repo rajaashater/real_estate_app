@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
+import 'package:real_estate_app/services/auth_service.dart';
 import 'package:real_estate_app/utils/app_constants.dart';
 import 'package:real_estate_app/views/drawer/password_text_from_field.dart';
 import 'package:real_estate_app/views/drawer/register_screen.dart';
@@ -83,8 +84,7 @@ class LoginScreen extends StatelessWidget {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
                     }
-                    print(_email);
-                    print(_password);
+                    AuthService().login(_email!, _password!);
                   },
                   child: Text('login'.tr(),
                       style: Theme.of(context).textTheme.headline1),
