@@ -1,10 +1,13 @@
+import 'package:real_estate_app/models/user_model.dart';
+
 class AuthModel{
   final String token;
-  final String name;
+  final UserModel user;
 
-  AuthModel({required this.token, required this.name});
+  AuthModel({required this.token, required this.user});
 
   factory AuthModel.fromJson(Map<String, dynamic> json){
-    return AuthModel(token: json['token'], name: json['name']);
+    print(json['user']);
+    return AuthModel(token: json['token'], user: UserModel.fromJson(json['user']));
   }
 }

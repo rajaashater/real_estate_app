@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/services/auth_service.dart';
@@ -5,14 +7,43 @@ import 'package:real_estate_app/utils/app_constants.dart';
 import 'package:real_estate_app/views/drawer/password_text_from_field.dart';
 import 'package:real_estate_app/views/drawer/register_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:real_estate_app/views/main/home/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../utils/theme/app_colors.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
+
   String? _email;
+
   String? _password;
+
+  @override
+  void initState() {
+    initial();
+    super.initState();
+  }
+
+  void initial(){
+    SharedPreferences.getInstance().then((prefs) {
+      if (prefs.getString('token') != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ),
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +111,17 @@ class LoginScreen extends StatelessWidget {
                 width: 125.0,
                 height: 35.0,
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
+                      showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
+                      var authData = await AuthService().login(_email!, _password!);
+                      final sharedPreferences = await SharedPreferences.getInstance();
+                      sharedPreferences.setString('token', authData.data.token);
+                      sharedPreferences.setString('user', json.encode(authData.data.user.toJson()));
+                      Navigator.of(context).pop();
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomeScreen()));
                     }
-                    AuthService().login(_email!, _password!);
                   },
                   child: Text('login'.tr(),
                       style: Theme.of(context).textTheme.headline1),

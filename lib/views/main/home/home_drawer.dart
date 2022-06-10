@@ -8,6 +8,7 @@ import 'package:real_estate_app/views/drawer/login_screen.dart';
 import 'package:real_estate_app/views/drawer/my_favourite.dart';
 import 'package:real_estate_app/views/drawer/my_properties.dart';
 import 'package:real_estate_app/views/drawer/profile_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class HomeDrawer extends StatelessWidget {
@@ -133,13 +134,16 @@ class HomeDrawer extends StatelessWidget {
                   ).show();
                 },
               ),
-              //TODO replace true with isSignIn variable
               ListTile(
                 leading: const Icon(Icons.circle, color: AppColors.secondary),
-                title: Text(false ? 'sign_out'.tr() : 'login'.tr(),
+                title: Text('sign_out'.tr(),
                     style: Theme.of(context).textTheme.headline1),
-                onTap: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => LoginScreen())),
+                onTap: () async {
+                  final sharedPreferences = await SharedPreferences.getInstance();
+                  sharedPreferences.remove('token');
+                  sharedPreferences.remove('user');
+                  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => LoginScreen()), (_) => false);
+                },
               ),
             ],
           ),
