@@ -2,7 +2,7 @@
 
 abstract class AppConstants{
 
-  static const String baseUrl = 'http://10.0.2.2:8000/api';
+  static const String baseUrl = 'http://key-in-click.herokuapp.com/api';
 
   ///Images
   static const String imagesPrefix = 'assets/images';

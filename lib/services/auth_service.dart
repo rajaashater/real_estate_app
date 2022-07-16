@@ -34,4 +34,6 @@ class AuthService{
       throw Exception('Failed to register');
     }
   }
+
+  //return ResponseModel<List<CityModel>>.fromJson(parsedJson, (data) => (data as List).map((e) => CityModel.fromJson(e)).toList());
 }

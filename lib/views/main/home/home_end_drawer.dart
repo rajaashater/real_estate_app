@@ -4,6 +4,10 @@ import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/app_constants.dart';
 import 'package:real_estate_app/views/components/components.dart';
 import 'package:real_estate_app/views/drawer/post_requirement_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../services/search_service.dart';
+import 'home_screen.dart';
 
 class HomeEndDrawer extends StatelessWidget {
   const HomeEndDrawer({Key? key}) : super(key: key);
@@ -136,7 +140,11 @@ class HomeEndDrawer extends StatelessWidget {
                 width: 120.0,
                 height: 35.0,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
+                    var SearchData = await SearchService().search();
+                    Navigator.of(context).pop();
+                    },
                   child: Text('search'.tr(),
                       style: Theme.of(context).textTheme.headline1),
                 ),

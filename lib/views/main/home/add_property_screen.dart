@@ -96,6 +96,7 @@ class AddPropertyScreen extends StatelessWidget {
                     const SizedBox(
                       height: 30.0,
                     ),
+
                     TextFormField(
                       onSaved: (dynamic value) => _description = value,
                       keyboardType: TextInputType.streetAddress,

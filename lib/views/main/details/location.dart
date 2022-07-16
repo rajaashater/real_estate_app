@@ -34,7 +34,7 @@ class _LocationState extends State<Location> {
                 width: 5,
               ),
               Text(
-                'Malki'.tr(),
+                'malki'.tr(),
                 style: Theme.of(context).textTheme.headline3,
               ),
             ],
@@ -42,16 +42,14 @@ class _LocationState extends State<Location> {
           SizedBox(
             height: 20,
           ),
-          SizedBox(
-            height: 300,
-            child: GoogleMap(
-              mapType: MapType.hybrid,
-              initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
-            ),
-          ),
+         SizedBox(height: 300,
+           child: GoogleMap(
+             mapType: MapType.hybrid,
+             initialCameraPosition: _kGooglePlex,
+             onMapCreated: (GoogleMapController controller) {_controller.complete(controller);
+             },
+
+           ),),
         ]),
       ),
     );

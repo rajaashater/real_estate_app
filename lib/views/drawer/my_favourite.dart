@@ -53,14 +53,7 @@ class MyFavouriteScreen extends StatelessWidget {
                       children: [
                         const Icon(Icons.favorite),
                         Text("type".tr()),
-                        Column(
-                          children: [
-                            const Icon(Icons.star_rate_outlined),
-                            Text('15 review',
-                                style:
-                                Theme.of(context).textTheme.headline1),
-                          ],
-                        )
+
                       ],
                     ),
                   ),
