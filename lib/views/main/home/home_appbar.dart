@@ -14,7 +14,7 @@ class HomeAppBar extends StatelessWidget {
         //IconButton(onPressed: () {},
           //icon: const Icon(Icons.compare_arrows),),
         IconButton(
-          onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder:(_) => const HomeEndDrawer() )) ,
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder:(_) =>  HomeEndDrawer() )) ,
           icon: const Icon(Icons.search),
         )
       ],

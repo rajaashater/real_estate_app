@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      endDrawer: const HomeEndDrawer(),
+      endDrawer:  HomeEndDrawer(),
       drawer: const HomeDrawer(),
       appBar: AppBar(
         elevation: 0.0,

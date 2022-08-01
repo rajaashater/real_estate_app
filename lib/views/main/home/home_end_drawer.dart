@@ -10,7 +10,11 @@ import '../../../services/search_service.dart';
 import 'home_screen.dart';
 
 class HomeEndDrawer extends StatelessWidget {
-  const HomeEndDrawer({Key? key}) : super(key: key);
+   HomeEndDrawer({Key? key}) : super(key: key);
+
+  int? _floor;
+
+  double? _area;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -142,7 +146,7 @@ class HomeEndDrawer extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
-                    var SearchData = await SearchService().search();
+                    var SearchData = await SearchService().search( _floor! , _area! ,);
                     Navigator.of(context).pop();
                     },
                   child: Text('search'.tr(),

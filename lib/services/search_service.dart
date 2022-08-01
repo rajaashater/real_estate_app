@@ -9,9 +9,11 @@ import '../models/response_model.dart';
 
 class SearchService {
 
-  Future<ResponseModel<SearchModel>> search() async {
+  Future<ResponseModel<SearchModel>> search(int floor , double area) async {
     var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.search}');
-    var response = await http.post(url, body: {});
+    var response = await http.post(url, headers: {
+      'Authorization': 'Bearer 7|H5phb1pyrqH0zEW1ntAaJmZ1XEdXg3kNTu1VPEiP'
+    });
     print(response);
     if (response.statusCode == 200) {
       var parsedJson = json.decode(response.body);

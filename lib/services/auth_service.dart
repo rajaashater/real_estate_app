@@ -11,7 +11,7 @@ class AuthService{
 
   Future<ResponseModel<AuthModel>> login(String email, String password) async {
     var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.login}');
-    var response = await http.post(url, body: {'email': email, 'password': password});
+    var response = await http.post(url, body: {'email': email, 'password': password}, headers: {'Authorization': 'Bearer 7|H5phb1pyrqH0zEW1ntAaJmZ1XEdXg3kNTu1VPEiP'});
     print(response);
     if(response.statusCode == 200) {
       var parsedJson = json.decode(response.body);

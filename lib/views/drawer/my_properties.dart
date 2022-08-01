@@ -55,8 +55,8 @@ class MyPropertiesScreen extends StatelessWidget {
                         Text("type".tr()),
                         Column(
                           children: [
-                            const Icon(Icons.star_rate_outlined),
-                            Text('15 review',
+                            const Icon(Icons.delete),
+                            Text('delete',
                                 style:
                                 Theme.of(context).textTheme.headline1),
                           ],
