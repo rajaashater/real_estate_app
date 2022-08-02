@@ -31,12 +31,12 @@ class AddPropertyScreen extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: ListView(
             children: [
-              KAddImages(
-                onImageSelected: (image){
-                  //TODO Practice
-                  _image = image;
-                },
-              ),
+              // KAddImages(
+              //   onImageSelected: (image){
+              //     //TODO Practice
+              //     _image = image;
+              //   },
+              // ),
 
               Text('post_your_property_in_simple_steps'.tr(),
                   style: Theme.of(context).textTheme.headline3),

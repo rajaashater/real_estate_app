@@ -9,38 +9,38 @@ import '../models/response_model.dart';
 
 class RealEstateService {
 
-  Future<ResponseModel<RealEstateModel>> show_page() async {
-    var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.show_page}');
-    var response = await http.get(url, headers: {
-      'Accept': 'application/json',
-      'Authorization': 'Bearer 7|H5phb1pyrqH0zEW1ntAaJmZ1XEdXg3kNTu1VPEiP'
-    });
-    print(response);
-    if (response.statusCode == 200) {
-      var parsedJson = json.decode(response.body);
-      return ResponseModel<RealEstateModel>.fromJson(
-          parsedJson, (data) => RealEstateModel.fromJson(data));
-    }
-    else {
-      throw Exception('Failed find page');
-    }
-  }
-  Future<ResponseModel<RealEstateModel>> add_realestate() async {
-    var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.show_page}');
-    var response = await http.get(url, headers: {
-      'Accept': 'application/json',
-      'Authorization': 'Bearer 7|H5phb1pyrqH0zEW1ntAaJmZ1XEdXg3kNTu1VPEiP'
-    });
-    print(response);
-    if (response.statusCode == 200) {
-      var parsedJson = json.decode(response.body);
-      return ResponseModel<RealEstateModel>.fromJson(
-          parsedJson, (data) => RealEstateModel.fromJson(data));
-    }
-    else {
-      throw Exception('Failed find page');
-    }
-  }
+  // Future<ResponseModel<RealEstateModel>> show_page() async {
+  //   var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.show_page}');
+  //   var response = await http.get(url, headers: {
+  //     'Accept': 'application/json',
+  //     'Authorization': 'Bearer 7|H5phb1pyrqH0zEW1ntAaJmZ1XEdXg3kNTu1VPEiP'
+  //   });
+  //   print(response);
+  //   if (response.statusCode == 200) {
+  //     var parsedJson = json.decode(response.body);
+  //     return ResponseModel<RealEstateModel>.fromJson(
+  //         parsedJson, (data) => RealEstateModel.fromJson(data));
+  //   }
+  //   else {
+  //     throw Exception('Failed find page');
+  //   }
+  // }
+  // Future<ResponseModel<RealEstateModel>> add_realestate() async {
+  //   var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.show_page}');
+  //   var response = await http.get(url, headers: {
+  //     'Accept': 'application/json',
+  //     'Authorization': 'Bearer 7|H5phb1pyrqH0zEW1ntAaJmZ1XEdXg3kNTu1VPEiP'
+  //   });
+  //   print(response);
+  //   if (response.statusCode == 200) {
+  //     var parsedJson = json.decode(response.body);
+  //     return ResponseModel<RealEstateModel>.fromJson(
+  //         parsedJson, (data) => RealEstateModel.fromJson(data));
+  //   }
+  //   else {
+  //     throw Exception('Failed find page');
+  //   }
+  // }
 
 
 }

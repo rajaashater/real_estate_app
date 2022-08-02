@@ -85,7 +85,14 @@ class RegisterScreen extends StatelessWidget {
                         }
                         return null;
                       },
-                      onSaved: (value) => _gender = value,
+                      onSaved: (value) {
+                        String? gender = value;
+                        if(value == 'Female' || value == 'أنثى')
+                          gender = 'female';
+                        if(value == 'Male' || value == 'ذكر')
+                          gender = 'male';
+                        _gender = gender;
+                      },
                     ),
                     const SizedBox(
                       height: 10.0,

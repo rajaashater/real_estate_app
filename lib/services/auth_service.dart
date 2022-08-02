@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:real_estate_app/models/auth_model.dart';
 import 'package:http/http.dart' as http;
@@ -11,8 +12,8 @@ class AuthService{
 
   Future<ResponseModel<AuthModel>> login(String email, String password) async {
     var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.login}');
-    var response = await http.post(url, body: {'email': email, 'password': password}, headers: {'Authorization': 'Bearer 7|H5phb1pyrqH0zEW1ntAaJmZ1XEdXg3kNTu1VPEiP'});
-    print(response);
+    var response = await http.post(url, body: {'email': email, 'password': password});
+    print(response.body);
     if(response.statusCode == 200) {
       var parsedJson = json.decode(response.body);
       return ResponseModel<AuthModel>.fromJson(parsedJson, (data) => AuthModel.fromJson(data));
@@ -23,9 +24,13 @@ class AuthService{
   }
 
   Future<ResponseModel<AuthModel>> register(String name, String email, String password, String phone, String gender) async {
+    print('name = $name');
     var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.register}');
-    var response = await http.post(url, body: {'name': name, 'email': email, 'password': password, 'c_password' : password, 'phone': phone, 'gender' : gender});
-    print(response);
+    var response = await http.post(
+        url,
+        body: {'name': name, 'email': email, 'password': password, 'c_password' : password, 'phone': phone, 'gender' : gender},
+    );
+    print(response.body);
     if(response.statusCode == 200) {
       var parsedJson = json.decode(response.body);
       return ResponseModel<AuthModel>.fromJson(parsedJson, (data) => AuthModel.fromJson(data));
