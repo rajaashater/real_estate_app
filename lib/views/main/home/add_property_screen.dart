@@ -6,8 +6,7 @@ import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/app_constants.dart';
 import 'package:real_estate_app/views/components/components.dart';
-
-import '../../components/K_add_photo.dart';
+import 'package:real_estate_app/views/components/k_images_picker.dart';
 
 class AddPropertyScreen extends StatelessWidget {
   AddPropertyScreen({Key? key}) : super(key: key);
@@ -17,7 +16,7 @@ class AddPropertyScreen extends StatelessWidget {
   String? _description;
   String? _status;
   String? _postType;
-  XFile? _image;
+  List<XFile>? _images;
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +30,14 @@ class AddPropertyScreen extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: ListView(
             children: [
-              // KAddImages(
-              //   onImageSelected: (image){
-              //     //TODO Practice
-              //     _image = image;
-              //   },
-              // ),
-
               Text('post_your_property_in_simple_steps'.tr(),
                   style: Theme.of(context).textTheme.headline3),
               const SizedBox(
                 height: 40.0,
+              ),
+              KImagesPicker(onImagesSaved: (images) => _images = images),
+              const SizedBox(
+                height: 20.0,
               ),
               Row(children: [
                 const Icon(

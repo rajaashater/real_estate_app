@@ -10,6 +10,8 @@ import 'package:real_estate_app/views/drawer/my_properties.dart';
 import 'package:real_estate_app/views/drawer/profile_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../main.dart';
+
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({Key? key}) : super(key: key);
@@ -139,7 +141,6 @@ class HomeDrawer extends StatelessWidget {
                 title: Text('sign_out'.tr(),
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () async {
-                  final sharedPreferences = await SharedPreferences.getInstance();
                   sharedPreferences.remove('token');
                   sharedPreferences.remove('user');
                   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => LoginScreen()), (_) => false);

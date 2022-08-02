@@ -1,20 +1,29 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:real_estate_app/models/cities_get_model.dart';
+import 'package:real_estate_app/models/response_model.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/app_constants.dart';
 import 'package:real_estate_app/views/components/components.dart';
 import 'package:real_estate_app/views/drawer/post_requirement_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../services/cities_get_service.dart';
 import '../../../services/search_service.dart';
 import 'home_screen.dart';
 
 class HomeEndDrawer extends StatelessWidget {
    HomeEndDrawer({Key? key}) : super(key: key);
 
-  int? _floor;
-
   double? _area;
+  double? _minPrice;
+  double? _maxPrice;
+  // String? _propertyType;
+  int? _numberOfRooms;
+  int? _numberOfBathRooms;
+  String? _countryID;
+  // String? _state;
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -55,9 +64,20 @@ class HomeEndDrawer extends StatelessWidget {
               ),
               Column(
                 children: [
-                  KDropDownButtonFormField<String>(
-                    label:  Text('select_location'.tr()),
-                      items: ['city1', 'city2', 'city3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList()),
+                  FutureBuilder<ResponseModel<List<CitiesGetModel>>>(
+                    future: CitiesGetService().getCities(),
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        if (snapshot.hasData) {
+                          return KDropDownButtonFormField<CitiesGetModel>(
+                              label:  Text('select_location'.tr()),
+                              items: (snapshot.data.data as List<CitiesGetModel>).map((CitiesGetModel e) => DropdownMenuItem<CitiesGetModel>(value: e, child: Text(e.country))).toList());
+                        } else {
+                          return Center(
+                            child: CircularProgressIndicator(color: Colors.white),
+                          );
+                        }
+                      }
+                  ),
                   const SizedBox(height: 20),
                   KDropDownButtonFormField<String>(
                     label:  Text('property_type'.tr()),
@@ -72,7 +92,7 @@ class HomeEndDrawer extends StatelessWidget {
                   size: 10,
                 ),
                 const SizedBox(width: 5,),
-                Text('size'.tr(), style: Theme.of(context).textTheme.headline1),
+                Text('area'.tr(), style: Theme.of(context).textTheme.headline1),
               ]),
               const SizedBox(height:5),
               KRangeSlider(
@@ -103,6 +123,7 @@ class HomeEndDrawer extends StatelessWidget {
                   //TODO Save value
                 },
               ),
+
               const SizedBox(height: 10),
               Row(children: [
                 const Icon(
@@ -127,6 +148,25 @@ class HomeEndDrawer extends StatelessWidget {
                   size: 10,
                 ),
                 const SizedBox(width: 5,),
+                Text('number_of_bathrooms'.tr(),
+                    style: Theme.of(context).textTheme.headline1),
+              ]),
+              const SizedBox(height: 10),
+              KChoicesWrap<int>(
+                list: AppConstants.numberOfRoomsList,
+                onItemSelected: (dynamic value){
+                  //TODO Save value
+                },
+              ),
+              const SizedBox(height: 10),
+              Row(children: [
+                const Icon(
+                  Icons.circle,
+                  size: 10,
+                ),
+                const SizedBox(width: 5,),
+
+
 
                 Text('ownership'.tr(),
                     style: Theme.of(context).textTheme.headline1),
@@ -146,7 +186,7 @@ class HomeEndDrawer extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
-                    var SearchData = await SearchService().search( _floor! , _area! ,);
+                    var SearchData = await SearchService().search(area: _area! ,minPrice: _minPrice!,maxPrice: _maxPrice!, numberOfRooms: _numberOfRooms!, numberOfBathRooms: _numberOfBathRooms!, countryID: _countryID);
                     Navigator.of(context).pop();
                     },
                   child: Text('search'.tr(),

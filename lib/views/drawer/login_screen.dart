@@ -10,7 +10,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:real_estate_app/views/main/home/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../main.dart';
 import '../../utils/theme/app_colors.dart';
+import '../main/main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -38,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HomeScreen(),
+            builder: (context) => MainScreen(),
           ),
         );
       }
@@ -116,11 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       _formKey.currentState!.save();
                       showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
                       var authData = await AuthService().login(_email!, _password!);
-                      final sharedPreferences = await SharedPreferences.getInstance();
                       sharedPreferences.setString('token', authData.data.token);
                       sharedPreferences.setString('user', json.encode(authData.data.user.toJson()));
                       Navigator.of(context).pop();
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => HomeScreen()));
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => MainScreen()));
                     }
                   },
                   child: Text('login'.tr(),

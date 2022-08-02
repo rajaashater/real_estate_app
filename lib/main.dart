@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/theme/app_theme.dart';
 import 'package:real_estate_app/views/drawer/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+late SharedPreferences sharedPreferences;
 
 Future<void> main () async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  sharedPreferences = await SharedPreferences.getInstance();
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],
       path: 'assets/translations',

@@ -7,10 +7,12 @@ import 'package:real_estate_app/views/drawer/password_text_from_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../main.dart';
 import '../../services/auth_service.dart';
 import '../../utils/theme/app_colors.dart';
 import '../components/k_drop_down_button_form_field.dart';
 import '../main/home/home_screen.dart';
+import '../main/main_screen.dart';
 
 // ignore: must_be_immutable
 class RegisterScreen extends StatelessWidget {
@@ -150,13 +152,12 @@ class RegisterScreen extends StatelessWidget {
                       _formKey.currentState!.save();
                       showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
                       var authData = await AuthService().register(_name!,_email!, _password!,  _phone!, _gender!);
-                      final sharedPreferences = await SharedPreferences.getInstance();
                       sharedPreferences.remove('token');
                       sharedPreferences.remove('user');
                       sharedPreferences.setString('token', authData.data.token);
                       sharedPreferences.setString('user', json.encode(authData.data.user.toJson()));
                       Navigator.of(context).pop();
-                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => HomeScreen()), (_) => false);
+                      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => MainScreen()), (_) => false);
                     }
                   },
                   child: Text('sign_up'.tr(),
