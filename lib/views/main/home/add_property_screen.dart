@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/app_constants.dart';
@@ -14,6 +15,7 @@ class AddPropertyScreen extends StatelessWidget {
   String? _description;
   String? _status;
   String? _postType;
+  XFile? _image;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,13 @@ class AddPropertyScreen extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: ListView(
             children: [
+              KProfileImage(
+                onImageSelected: (image){
+                  //TODO Practice
+                  _image = image;
+                },
+              ),
+
               Text('post_your_property_in_simple_steps'.tr(),
                   style: Theme.of(context).textTheme.headline3),
               const SizedBox(

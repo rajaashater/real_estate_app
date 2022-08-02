@@ -12,7 +12,9 @@ import '../../utils/theme/app_colors.dart';
 import '../components/k_drop_down_button_form_field.dart';
 import '../main/home/home_screen.dart';
 
+// ignore: must_be_immutable
 class RegisterScreen extends StatelessWidget {
+
   RegisterScreen({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
   String? _email;

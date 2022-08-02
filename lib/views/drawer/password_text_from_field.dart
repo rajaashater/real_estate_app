@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BuildContext, Colors, Icon, IconButton, Icons, InputDecoration, Key, State, StatefulWidget, TextFormField, TextInputType, Widget;
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 
 class PasswordTextFormField extends StatefulWidget {
