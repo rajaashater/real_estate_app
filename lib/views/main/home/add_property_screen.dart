@@ -7,6 +7,8 @@ import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/utils/app_constants.dart';
 import 'package:real_estate_app/views/components/components.dart';
 
+import '../../components/K_add_photo.dart';
+
 class AddPropertyScreen extends StatelessWidget {
   AddPropertyScreen({Key? key}) : super(key: key);
   final _formKey = GlobalKey<FormState>();
@@ -29,7 +31,7 @@ class AddPropertyScreen extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: ListView(
             children: [
-              KProfileImage(
+              KAddImages(
                 onImageSelected: (image){
                   //TODO Practice
                   _image = image;
