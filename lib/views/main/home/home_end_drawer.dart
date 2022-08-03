@@ -8,13 +8,14 @@ import 'package:real_estate_app/views/components/components.dart';
 import 'package:real_estate_app/views/drawer/post_requirement_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../models/real_estate_model.dart';
 import '../../../services/cities_get_service.dart';
 import '../../../services/search_service.dart';
 import 'home_screen.dart';
 
 class HomeEndDrawer extends StatelessWidget {
-   HomeEndDrawer({Key? key}) : super(key: key);
-
+   HomeEndDrawer({Key? key, required this.onSearch}) : super(key: key);
+   final Function(Future<ResponseModel<List<RealEstateModel>>> data) onSearch;
   double? _area;
   double? _minPrice;
   double? _maxPrice;
@@ -22,7 +23,7 @@ class HomeEndDrawer extends StatelessWidget {
   int? _numberOfRooms;
   int? _numberOfBathRooms;
   String? _countryID;
-  // String? _state;
+  String? _state;
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +71,7 @@ class HomeEndDrawer extends StatelessWidget {
                         if (snapshot.hasData) {
                           return KDropDownButtonFormField<CitiesGetModel>(
                               label:  Text('select_location'.tr()),
+                              onSaved: (CitiesGetModel? value) => _countryID = value?.id.toString(),
                               items: (snapshot.data.data as List<CitiesGetModel>).map((CitiesGetModel e) => DropdownMenuItem<CitiesGetModel>(value: e, child: Text(e.country))).toList());
                         } else {
                           return Center(
@@ -100,7 +102,7 @@ class HomeEndDrawer extends StatelessWidget {
                 max: 500.0,
                 unit: 'M',
                 onChanged: (value){
-                  //TODO Save value
+                  _area = value.start;
                 },
               ),
               const SizedBox(height: 5),
@@ -120,7 +122,8 @@ class HomeEndDrawer extends StatelessWidget {
                 max: 1000.0,
                 unit: 'SYP',
                 onChanged: (value){
-                  //TODO Save value
+                  _minPrice = value.start;
+                  _maxPrice = value.end;
                 },
               ),
 
@@ -138,7 +141,7 @@ class HomeEndDrawer extends StatelessWidget {
               KChoicesWrap<int>(
                 list: AppConstants.numberOfRoomsList,
                 onItemSelected: (dynamic value){
-                //TODO Save value
+                  _numberOfRooms = value;
               },
               ),
               const SizedBox(height: 10),
@@ -155,7 +158,7 @@ class HomeEndDrawer extends StatelessWidget {
               KChoicesWrap<int>(
                 list: AppConstants.numberOfRoomsList,
                 onItemSelected: (dynamic value){
-                  //TODO Save value
+                  _numberOfBathRooms = value;
                 },
               ),
               const SizedBox(height: 10),
@@ -165,9 +168,6 @@ class HomeEndDrawer extends StatelessWidget {
                   size: 10,
                 ),
                 const SizedBox(width: 5,),
-
-
-
                 Text('ownership'.tr(),
                     style: Theme.of(context).textTheme.headline1),
               ]),
@@ -176,7 +176,7 @@ class HomeEndDrawer extends StatelessWidget {
                 spacing: 20.0,
                 list: context.locale.languageCode == 'en' ? AppConstants.ownershipListEn : AppConstants.ownershipListAr,
                 onItemSelected: (dynamic value){
-                  //TODO Save value
+                   _state = value;
                 },
               ),
               const SizedBox(height: 20),
@@ -185,8 +185,8 @@ class HomeEndDrawer extends StatelessWidget {
                 height: 35.0,
                 child: ElevatedButton(
                   onPressed: () async {
-                    showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
-                    var SearchData = await SearchService().search(area: _area! ,minPrice: _minPrice!,maxPrice: _maxPrice!, numberOfRooms: _numberOfRooms!, numberOfBathRooms: _numberOfBathRooms!, countryID: _countryID);
+                    var SearchData = SearchService().search(area: _area ,minPrice: _minPrice ,maxPrice: _maxPrice, numberOfRooms: _numberOfRooms, numberOfBathRooms: _numberOfBathRooms, countryID: _countryID);
+                    onSearch(SearchData);
                     Navigator.of(context).pop();
                     },
                   child: Text('search'.tr(),

@@ -18,10 +18,19 @@ class SearchService {
       int? numberOfBathRooms,
         double? minPrice,
         String? countryID,
+        String? state,
       }) async {
-    var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.search}');
-    var response = await http.post(url, headers: AppUtils.defaultHttpHeaders);
-    print(response);
+    var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.search}?');
+    var response = await http.get(url, body: {
+      if(area != null) 'area': area,
+      if(maxPrice != null) 'max_price': maxPrice,
+      if(numberOfRooms != null) 'number_of_rooms': numberOfRooms,
+      if(numberOfBathRooms != null) 'number_of_path_rooms': numberOfBathRooms,
+      if(minPrice != null) 'min_price': minPrice,
+      if(countryID != null) 'country': countryID,
+      if(state != null) 'state': state,
+    },headers: AppUtils.defaultHttpHeaders);
+    print(response.body);
     if (response.statusCode == 200) {
       var parsedJson = json.decode(response.body);
       return ResponseModel<List<RealEstateModel>>.fromJson(

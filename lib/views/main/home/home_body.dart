@@ -7,12 +7,12 @@ import '../../../models/real_estate_model.dart';
 import '../../../models/response_model.dart';
 
 class HomeBody extends StatelessWidget {
-  const HomeBody({Key? key}) : super(key: key);
-
+  const HomeBody({Key? key, required this.data}) : super(key: key);
+  final Future<ResponseModel<List<RealEstateModel>>> data;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ResponseModel<List<RealEstateModel>>>(
-      future: RealEstateService().showPage(),
+      future: data,
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
             return ListView.separated(
@@ -33,7 +33,7 @@ class HomeBody extends StatelessWidget {
                           decoration: BoxDecoration(
                               color: AppColors.secondary,
                               image: DecorationImage(
-                                  image: NetworkImage(snapshot.data!.data[index].urls[0]),
+                                  image: NetworkImage(snapshot.data!.data[index].urls.first),
                                   fit: BoxFit.cover),
                               borderRadius: BorderRadiusDirectional.only(
                                 topStart: Radius.circular(index % 2 == 0 ? 20 : 0),
