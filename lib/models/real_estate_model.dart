@@ -5,18 +5,15 @@ import '../utils/app_constants.dart';
 class RealEstateModel{
   final String address;
   final int id;
-  final int floor;
+  final int? floor;
   final int area;
-  final double price;
+  final dynamic price;
   final String property_type;
   final String type;
-  final double? min_price;
-  final double? max_price;
-  final int number_of_rooms;
-  final int number_of_path_rooms;
-  final int is_sales;
-  final int is_rent;
-  final int is_favourite;
+  final dynamic min_price;
+  final dynamic max_price;
+  final int? number_of_rooms;
+  final int? number_of_path_rooms;
   final String state;
   final String furnished;
   final String services;
@@ -26,7 +23,7 @@ class RealEstateModel{
   final int countF;
   final String status;
   final String end_r_date;
-  final String description;
+  final String? description;
   final List<String> urls;
   final int user_id;
   final int cities_id;
@@ -34,12 +31,12 @@ class RealEstateModel{
   final String? lat;
 
   RealEstateModel({
-  required this.floor, required this.area, required this.price, required this.property_type, required this.type, required this.min_price, required this.max_price, required this.number_of_rooms, required this.number_of_path_rooms, required this.is_sales, required this.is_rent, required this.is_favourite, required this.state, required this.furnished, required this.services, required this.cover, required this.image, required this.image_path, required this.countF, required this.status, required this.end_r_date, required this.description, required this.urls, required this.user_id, required this.cities_id, required this.long, required this.lat, required this.address, required this.id,
+  required this.floor, required this.area, required this.price, required this.property_type, required this.type, required this.min_price, required this.max_price, required this.number_of_rooms, required this.number_of_path_rooms, required this.state, required this.furnished, required this.services, required this.cover, required this.image, required this.image_path, required this.countF, required this.status, required this.end_r_date, required this.description, required this.urls, required this.user_id, required this.cities_id, required this.long, required this.lat, required this.address, required this.id,
 });
 
   factory RealEstateModel.fromJson(Map<String, dynamic> json){
     List<String> urls = List<String>.from(jsonDecode(json['urls']));
-    urls = urls.map((e) => AppConstants.domain + e).toList();
+    // urls = urls.map((e) => AppConstants.domain + e).toList();
     return RealEstateModel(
       id: json['id'],
       price: json['price'],
@@ -51,9 +48,6 @@ class RealEstateModel{
       max_price: json['max_price'],
       number_of_path_rooms: json['number_of_path_rooms'],
       number_of_rooms: json['number_of_rooms'],
-      is_sales:json['is_sales'],
-      is_rent:json['is_rent'],
-      is_favourite:json['is_favoraite'],
       state:json['state'],
       furnished:json['furnished'],
       services:json['services'],
