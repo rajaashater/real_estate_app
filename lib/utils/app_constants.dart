@@ -2,8 +2,10 @@
 
 abstract class AppConstants{
 
-  static const String baseUrl = 'http://10.0.2.2:8000/api';
-  static const String domain = 'http://10.0.2.2:8000';
+  // static const String baseUrl = 'http://10.0.2.2:8000/api';api
+  static const String baseUrl = 'https://key-in-click.herokuapp.com/api';
+  // static const String domain = 'http://10.0.2.2:8000';
+  static const String domain = 'https://key-in-click.herokuapp.com';
 
   ///Images
   static const String imagesPrefix = 'assets/images';

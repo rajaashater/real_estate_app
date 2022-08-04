@@ -20,16 +20,8 @@ class SearchService {
         String? countryID,
         String? state,
       }) async {
-    var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.search}?');
-    var response = await http.get(url, body: {
-      if(area != null) 'area': area,
-      if(maxPrice != null) 'max_price': maxPrice,
-      if(numberOfRooms != null) 'number_of_rooms': numberOfRooms,
-      if(numberOfBathRooms != null) 'number_of_path_rooms': numberOfBathRooms,
-      if(minPrice != null) 'min_price': minPrice,
-      if(countryID != null) 'country': countryID,
-      if(state != null) 'state': state,
-    },headers: AppUtils.defaultHttpHeaders);
+    var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.search}?area=$area&max_price=$maxPrice&number_of_rooms=$numberOfRooms&number_of_path_rooms=$numberOfBathRooms&minPrice=$minPrice&country=$countryID&state=$state');
+    var response = await http.get(url, headers: AppUtils.defaultHttpHeaders);
     print(response.body);
     if (response.statusCode == 200) {
       var parsedJson = json.decode(response.body);
