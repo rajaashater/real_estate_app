@@ -1,13 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:real_estate_app/models/real_estate_model.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 import 'package:real_estate_app/views/main/details/services.dart';
 import 'package:real_estate_app/views/main/details/specification.dart';
 import 'location.dart';
 
 class PropertyDetailsScreen extends StatefulWidget {
-  const PropertyDetailsScreen({Key? key}) : super(key: key);
+  const PropertyDetailsScreen({Key? key, required this.realEstateModel}) : super(key: key);
+  final RealEstateModel realEstateModel;
 
   @override
   State<PropertyDetailsScreen> createState() => _PropertyDetailsScreenState();
@@ -32,7 +34,7 @@ class _PropertyDetailsScreenState extends State<PropertyDetailsScreen> with Sing
       body: Column(
         children: [
           CarouselSlider(
-            items: List<Widget>.generate(8, (index) => Image.asset('assets/images/h1 (${index + 1}).jpg', fit: BoxFit.cover, width: double.infinity)),
+            items: widget.realEstateModel.urls.map((e) => Image.network(e, fit: BoxFit.cover, width: double.infinity)).toList(),
             options:
             CarouselOptions(
               height: 250.0,
@@ -45,9 +47,9 @@ class _PropertyDetailsScreenState extends State<PropertyDetailsScreen> with Sing
             child: TabBarView(
               controller: _tabController,
                 children: [
-                  Specification(),
-                  Services(),
-                  Location(),
+                  Specification(realEstateModel: widget.realEstateModel,),
+                  Services(realEstateModel: widget.realEstateModel,),
+                  Location(address: widget.realEstateModel.address,),
               ]
             ),
           ),

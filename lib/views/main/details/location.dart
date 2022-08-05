@@ -6,8 +6,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:real_estate_app/utils/theme/app_colors.dart';
 
 class Location extends StatefulWidget {
-  const Location({Key? key}) : super(key: key);
-
+  const Location({Key? key, required this.address}) : super(key: key);
+  final String address;
   @override
   State<Location> createState() => _LocationState();
 }
@@ -16,7 +16,7 @@ class _LocationState extends State<Location> {
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(33.5167, 36.2833),
     zoom: 14.4746,
   );
 
@@ -34,7 +34,7 @@ class _LocationState extends State<Location> {
                 width: 5,
               ),
               Text(
-                'malki'.tr(),
+                widget.address,
                 style: Theme.of(context).textTheme.headline3,
               ),
             ],

@@ -1,7 +1,9 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 
+import '../../services/real_estate_service.dart';
 import '../../utils/theme/app_colors.dart';
 import '../../utils/app_constants.dart';
 import '../components/k_choices_wrap.dart';
@@ -10,12 +12,14 @@ import '../components/k_range_slider.dart';
 import 'about_you_screen.dart';
 
 class DetailsRequirementScreen extends StatelessWidget {
-  DetailsRequirementScreen({Key? key}) : super(key: key);
+  DetailsRequirementScreen({Key? key, required this.ownership}) : super(key: key);
+  final String ownership;
   final _formKey = GlobalKey<FormState>();
-  String? _city;
+  String? _address;
   String?  _type;
   int? _numberOfRooms;
-  double? _price;
+  double? _minPrice;
+  double? _maxPrice;
 
 
   @override
@@ -54,6 +58,7 @@ class DetailsRequirementScreen extends StatelessWidget {
                       'house',
                       'duplex',
                       'land',
+                      'villa',
                       'hotel',
                       'office',
                       'farm'
@@ -63,7 +68,7 @@ class DetailsRequirementScreen extends StatelessWidget {
                         .toList(),
                     validator: (value){
                       if(value == null){
-                        return 'required';
+                        return 'is_required'.tr();
                       }
                     },
                   ),
@@ -71,7 +76,7 @@ class DetailsRequirementScreen extends StatelessWidget {
                     height: 20.0,
                   ),
                   TextFormField(
-                    onSaved: (value) => _city = value,
+                    onSaved: (value) => _address = value,
                     keyboardType: TextInputType.streetAddress,
                     decoration: InputDecoration(
                       labelText: 'city/address'.tr(),
@@ -91,9 +96,11 @@ class DetailsRequirementScreen extends StatelessWidget {
               min: 50.0,
               max: 1000.0,
               unit: 'SYP',
-              onChanged: (value) {
-                //TODO Save value
-              },
+              onChanged: (value){
+                  _minPrice = value.start;
+                  _maxPrice = value.end;
+                },
+
             ),
             const SizedBox(
               height: 20.0,
@@ -114,7 +121,7 @@ class DetailsRequirementScreen extends StatelessWidget {
               width: double.infinity,
               height: 35.0,
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     if (_numberOfRooms == null) {
@@ -125,10 +132,59 @@ class DetailsRequirementScreen extends StatelessWidget {
                             style: Theme.of(context).textTheme.headline1,
                           )));
                     }
-                    // else if(){
-                      //TODO implement price
-                    // }
+                     else if(_minPrice == null || _maxPrice == null){
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: AppColors.primary,
+                          content: Text(
+                            'price is required'.tr(),
+                            style: Theme.of(context).textTheme.headline1,
+                          )));
+                    }
                     else {
+                      showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
+                      var data = await RealEstateService().addDsire(_minPrice!,_maxPrice!, ownership, _type!, _address!, _numberOfRooms!);
+                      if(data.success){
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.SUCCES,
+                          animType: AnimType.BOTTOMSLIDE,
+                          body: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 15.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  'done_successfully'.tr(),
+                                  style: Theme.of(context).textTheme.headline5,
+                                ),
+                                const SizedBox(
+                                  height: 25.0,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ).show();
+                      }
+                      else{
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.ERROR,
+                          animType: AnimType.BOTTOMSLIDE,
+                          body: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 15.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  'failed'.tr(),
+                                  style: Theme.of(context).textTheme.headline5,
+                                ),
+                                const SizedBox(
+                                  height: 25.0,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ).show();
+                      }
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (_) => AboutYouScreen()));
                     }

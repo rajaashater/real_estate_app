@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
 import '../../utils/theme/app_colors.dart';
 import '../../utils/app_constants.dart';
 import '../components/k_choices_wrap.dart';
@@ -47,7 +46,7 @@ class PostRequirementScreen extends StatelessWidget {
                       onPressed: ()  {
                         if(_ownership != null){
                           Navigator.of(context).push(
-                              MaterialPageRoute(builder: (_) => DetailsRequirementScreen()));
+                              MaterialPageRoute(builder: (_) => DetailsRequirementScreen(ownership: _ownership!)));
                         }
                         else{
                           ScaffoldMessenger.of(context).showSnackBar( SnackBar(backgroundColor: AppColors.primary,content: Text('ownership is required'.tr(), style: Theme.of(context).textTheme.headline1)));

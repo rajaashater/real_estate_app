@@ -99,5 +99,7 @@
   "playground": "Playground",
   "green_park": "Green Park",
   "parking": "Car Parking",
-  "internet": "Internet"
+  "internet": "Internet",
+  "you_should_add_one_image_at_least": "You should add one image at least",
+  "failed": "Failed"
 }

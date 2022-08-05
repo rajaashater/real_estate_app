@@ -16,7 +16,7 @@ class RealEstateModel{
   final int? number_of_path_rooms;
   final String state;
   final String furnished;
-  final String services;
+  final List<String> services;
   final String cover;
   final String image;
   final String image_path;
@@ -36,6 +36,7 @@ class RealEstateModel{
 
   factory RealEstateModel.fromJson(Map<String, dynamic> json){
     List<String> urls = List<String>.from(jsonDecode(json['urls']));
+    List<String> services = List<String>.from(jsonDecode(json['services']));
     // urls = urls.map((e) => AppConstants.domain + e).toList();
     return RealEstateModel(
       id: json['id'],
@@ -50,7 +51,7 @@ class RealEstateModel{
       number_of_rooms: json['number_of_rooms'],
       state:json['state'],
       furnished:json['furnished'],
-      services:json['services'],
+      services:services,
       cover : json['cover'],
     image : json['image'],
     image_path : json['image_path'],

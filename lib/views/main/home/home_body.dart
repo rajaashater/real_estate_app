@@ -35,7 +35,7 @@ class HomeBody extends StatelessWidget {
                         child: InkWell(
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (_) => PropertyDetailsScreen(),
+                              builder: (_) => PropertyDetailsScreen(realEstateModel: snapshot.data!.data[index],),
                             ),
                           ),
                           child: Container(

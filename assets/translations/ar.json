@@ -97,5 +97,7 @@
   "restaurant": "مطعم",
   "gym": "نادي رياضي",
   "parking": "موقف سيارات",
-  "internet": "شبكة انترنت"
+  "internet": "شبكة انترنت",
+  "you_should_add_one_image_at_least": "يجب إضافة صورة واحدة على الأقل",
+  "failed": "فشل"
 }
