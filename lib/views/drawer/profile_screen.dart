@@ -2,19 +2,33 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:queen_validators/queen_validators.dart';
+import 'package:real_estate_app/models/user_model.dart';
 import '../../utils/theme/app_colors.dart';
 import '../components/components.dart';
 import 'change_password.dart';
 
 
-class ProfileScreen extends StatelessWidget {
-  ProfileScreen({Key? key}) : super(key: key);
+class ProfileScreen extends StatefulWidget {
+  ProfileScreen({Key? key, required this.user}) : super(key: key);
+  final UserModel user;
+
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   final _formKey = GlobalKey<FormState>();
+
   XFile? _image;
+
   String? _email;
+
   String? _city;
+
   String? _name;
+
   String? _lastName;
+
   String? _phone;
 
   @override

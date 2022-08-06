@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +54,7 @@ class HomeDrawer extends StatelessWidget {
                 title: Text('profile'.tr(),
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => ProfileScreen())),
+                  .push(MaterialPageRoute(builder: (_) => ProfileScreen(user: sharedPreferences.getString('user', json.encode(authData.data.user.toJson())),))),
               ),
               ListTile(
                 leading: const Icon(Icons.circle, color: AppColors.secondary),
