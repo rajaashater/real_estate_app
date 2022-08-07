@@ -7,9 +7,15 @@ import 'package:real_estate_app/models/response_model.dart';
 import 'package:real_estate_app/services/real_estate_service.dart';
 import '../../utils/theme/app_colors.dart';
 
-class MyPropertiesScreen extends StatelessWidget {
+class MyPropertiesScreen extends StatefulWidget {
   const MyPropertiesScreen({Key? key}) : super(key: key);
 
+  @override
+  State<MyPropertiesScreen> createState() => _MyPropertiesScreenState();
+}
+
+class _MyPropertiesScreenState extends State<MyPropertiesScreen> {
+  Future<ResponseModel<List<RealEstateModel>>> _future = RealEstateService().getMyRealEstate();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +27,7 @@ class MyPropertiesScreen extends StatelessWidget {
 
       ),
       body: FutureBuilder<ResponseModel<List<RealEstateModel>>>(
-        future: RealEstateService().getMyRealEstate(),
+        future: _future,
         builder: (BuildContext context, AsyncSnapshot<ResponseModel<List<RealEstateModel>>> snapshot){
           if(snapshot.hasData){
             return GridView.custom(
@@ -66,27 +72,12 @@ class MyPropertiesScreen extends StatelessWidget {
                                 children: [
                                   IconButton(icon: Icon(Icons.delete), onPressed: () async {
                                     showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
-                                    var data = await RealEstateService().deleteRealEstate(4);
+                                    var data = await RealEstateService().deleteRealEstate(snapshot.data!.data[index].id);
                                     if(data.success){
-                                      AwesomeDialog(
-                                        context: context,
-                                        dialogType: DialogType.SUCCES,
-                                        animType: AnimType.BOTTOMSLIDE,
-                                        body: Padding(
-                                          padding: const EdgeInsets.symmetric(vertical: 15.0),
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                'done_successfully'.tr(),
-                                                style: Theme.of(context).textTheme.headline5,
-                                              ),
-                                              const SizedBox(
-                                                height: 25.0,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ).show();
+                                      Navigator.pop(context);
+                                      setState(() {
+                                        _future = RealEstateService().getMyRealEstate();
+                                      });
                                     }
                                     else{
                                       AwesomeDialog(

@@ -40,7 +40,13 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: HomeBody(data: _data),
+      body: RefreshIndicator(
+          onRefresh: () async {
+            setState(() {
+              _data = RealEstateService().showPage();
+            });
+          },
+          child: HomeBody(data: _data)),
     );
   }
 }

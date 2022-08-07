@@ -29,9 +29,10 @@ class RealEstateModel{
   final int cities_id;
   final String? long;
   final String? lat;
+  final bool isFavourite;
 
   RealEstateModel({
-  required this.floor, required this.area, required this.price, required this.property_type, required this.type, required this.min_price, required this.max_price, required this.number_of_rooms, required this.number_of_path_rooms, required this.state, required this.furnished, required this.services, required this.cover, required this.image, required this.image_path, required this.countF, required this.status, required this.end_r_date, required this.description, required this.urls, required this.user_id, required this.cities_id, required this.long, required this.lat, required this.address, required this.id,
+    required this.isFavourite, required this.floor, required this.area, required this.price, required this.property_type, required this.type, required this.min_price, required this.max_price, required this.number_of_rooms, required this.number_of_path_rooms, required this.state, required this.furnished, required this.services, required this.cover, required this.image, required this.image_path, required this.countF, required this.status, required this.end_r_date, required this.description, required this.urls, required this.user_id, required this.cities_id, required this.long, required this.lat, required this.address, required this.id,
 });
 
   factory RealEstateModel.fromJson(Map<String, dynamic> json){
@@ -65,6 +66,7 @@ class RealEstateModel{
       lat: json['lat'],
       long: json['long'],
       area: json['area'],
+      isFavourite: json['is_favoraite'],
     );
    }
 }

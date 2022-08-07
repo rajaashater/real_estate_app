@@ -58,7 +58,7 @@ class MyFavouriteScreen extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              FavouriteButton(id: snapshot.data!.data[index].id,),
+                              FavouriteButton(id: snapshot.data!.data[index].id, isFavourite: snapshot.data!.data[index].isFavourite,),
                               Text(snapshot.data!.data[index].property_type),
 
                             ],
@@ -80,14 +80,22 @@ class MyFavouriteScreen extends StatelessWidget {
 }
 
 class FavouriteButton extends StatefulWidget {
-  const FavouriteButton({Key? key, required this.id}) : super(key: key);
+  const FavouriteButton({Key? key, required this.id, required this.isFavourite}) : super(key: key);
   final int id;
+  final bool isFavourite;
   @override
   State<FavouriteButton> createState() => _FavouriteButtonState();
 }
 
 class _FavouriteButtonState extends State<FavouriteButton> {
   bool _isFavourite = false;
+
+  @override
+  void initState() {
+    _isFavourite = widget.isFavourite;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return  IconButton(icon:Icon(_isFavourite ? Icons.favorite : Icons.favorite_border), onPressed: () {

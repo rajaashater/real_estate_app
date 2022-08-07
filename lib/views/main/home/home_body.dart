@@ -6,6 +6,7 @@ import 'package:real_estate_app/views/main/details/property_details_screen.dart'
 
 import '../../../models/real_estate_model.dart';
 import '../../../models/response_model.dart';
+import '../../drawer/my_favourite.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({Key? key, required this.data}) : super(key: key);
@@ -20,6 +21,9 @@ class HomeBody extends StatelessWidget {
           print(snapshot.stackTrace);
         }
           if (snapshot.hasData) {
+            if(snapshot.data!.data.isEmpty){
+              return Center(child: Text('No Data.',style:  Theme.of(context).textTheme.headline6,));
+            }
             return ListView.separated(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               separatorBuilder: (_, int index) => const SizedBox(
@@ -63,7 +67,7 @@ class HomeBody extends StatelessWidget {
                                   children: [
                                     Text(snapshot.data!.data[index].price.toString()),
                                     Text(snapshot.data!.data[index].property_type),
-                                    const Icon(Icons.favorite),
+                                    FavouriteButton(id: snapshot.data!.data[index].id, isFavourite: snapshot.data!.data[index].isFavourite,),
                                   ],
                                 ),
                               ),

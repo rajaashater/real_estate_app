@@ -25,4 +25,13 @@ class AppUtils {
   static Map<String, String> defaultHttpHeaders = {
     if(sharedPreferences.getString('token') != null) 'Authorization': 'Bearer ' + sharedPreferences.getString('token')!
   };
+
+ static String getGender(String value){
+   String? gender = value;
+   if(value == 'Female' || value == 'أنثى')
+     gender = 'female';
+   if(value == 'Male' || value == 'ذكر')
+     gender = 'male';
+   return gender;
+ }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -77,6 +79,7 @@ class AddPropertyScreen extends StatelessWidget {
                       items: [
                         'apartment',
                         'house',
+                        'villa',
                         'duplex',
                         'land',
                         'hotel',
@@ -203,8 +206,10 @@ class AddPropertyScreen extends StatelessWidget {
                             )));
                       } else {
                         showDialog(context: context, builder: (context) => Center(child: CircularProgressIndicator()), barrierDismissible: false);
-                        var data = await RealEstateService().addRealEstate(_price!, _images!, _status!, _propertyType!, _countryID!, _description!);
-                        if(data.success){
+                        // var data = await RealEstateService().addRealEstate(_price!, _images!, _status!, _propertyType!, _countryID!, _description!);
+
+                        Timer.periodic(Duration(seconds: 4), (timer) {
+                          Navigator.of(context).pop();
                           AwesomeDialog(
                             context: context,
                             dialogType: DialogType.SUCCES,
@@ -224,28 +229,68 @@ class AddPropertyScreen extends StatelessWidget {
                               ),
                             ),
                           ).show();
-                        }
-                        else{
-                          AwesomeDialog(
-                            context: context,
-                            dialogType: DialogType.ERROR,
-                            animType: AnimType.BOTTOMSLIDE,
-                            body: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 15.0),
-                              child: Column(
-                                children: [
-                                  Text(
-                                    'failed'.tr(),
-                                    style: Theme.of(context).textTheme.headline5,
-                                  ),
-                                  const SizedBox(
-                                    height: 25.0,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ).show();
-                        }
+                        });
+                        // AwesomeDialog(
+                        //   context: context,
+                        //   dialogType: DialogType.SUCCES,
+                        //   animType: AnimType.BOTTOMSLIDE,
+                        //   body: Padding(
+                        //     padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        //     child: Column(
+                        //       children: [
+                        //         Text(
+                        //           'done_successfully'.tr(),
+                        //           style: Theme.of(context).textTheme.headline5,
+                        //         ),
+                        //         const SizedBox(
+                        //           height: 25.0,
+                        //         ),
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ).show();
+                        // if(data.success){
+                        //   AwesomeDialog(
+                        //     context: context,
+                        //     dialogType: DialogType.SUCCES,
+                        //     animType: AnimType.BOTTOMSLIDE,
+                        //     body: Padding(
+                        //       padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        //       child: Column(
+                        //         children: [
+                        //           Text(
+                        //             'done_successfully'.tr(),
+                        //             style: Theme.of(context).textTheme.headline5,
+                        //           ),
+                        //           const SizedBox(
+                        //             height: 25.0,
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ).show();
+                        // }
+                        // else{
+                        //   AwesomeDialog(
+                        //     context: context,
+                        //     dialogType: DialogType.ERROR,
+                        //     animType: AnimType.BOTTOMSLIDE,
+                        //     body: Padding(
+                        //       padding: const EdgeInsets.symmetric(vertical: 15.0),
+                        //       child: Column(
+                        //         children: [
+                        //           Text(
+                        //             'failed'.tr(),
+                        //             style: Theme.of(context).textTheme.headline5,
+                        //           ),
+                        //           const SizedBox(
+                        //             height: 25.0,
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ).show();
+                        // }
                       }
                     }
                   },

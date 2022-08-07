@@ -16,8 +16,7 @@ class HomeBottomNavigationBar extends StatelessWidget {
           iconSelectedForegroundColor: AppColors.secondary),
       icons: [
         FluidNavBarIcon(icon: Icons.home, backgroundColor: Colors.white),
-        //TODO replace true with isSignIn variable
-        if(true) FluidNavBarIcon(icon: Icons.person, backgroundColor: Colors.white),
+        FluidNavBarIcon(icon: Icons.person, backgroundColor: Colors.white),
         FluidNavBarIcon(icon: Icons.add_business, backgroundColor: Colors.white)
       ],
     );

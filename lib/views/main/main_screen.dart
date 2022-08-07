@@ -1,8 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:real_estate_app/views/drawer/profile_screen.dart';
 import 'package:real_estate_app/views/main/home/add_property_screen.dart';
 import 'package:real_estate_app/views/main/home/home_bottom_navigation_bar.dart';
 import 'package:real_estate_app/views/main/home/home_screen.dart';
+
+import '../../main.dart';
+import '../../models/user_model.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
@@ -14,8 +19,7 @@ class MainScreen extends StatelessWidget {
         controller: _pageController,
         children: [
           const HomeScreen(),
-          //TODO replace true with isSignIn variable
-          if(true) ProfileScreen(),
+          ProfileScreen(user: UserModel.fromJson(json.decode(sharedPreferences.getString('user') ?? '{}')),),
           AddPropertyScreen()
         ],
       ),

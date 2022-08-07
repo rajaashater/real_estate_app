@@ -12,15 +12,17 @@ class SearchService {
 
   Future<ResponseModel<List<RealEstateModel>>> search(
       {
-      double? area,
+      int? area,
       double? maxPrice,
       int? numberOfRooms,
       int? numberOfBathRooms,
         double? minPrice,
         String? countryID,
         String? state,
+        String? propertyType,
       }) async {
-    var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.search}?area=$area&max_price=$maxPrice&number_of_rooms=$numberOfRooms&number_of_path_rooms=$numberOfBathRooms&minPrice=$minPrice&country=$countryID&state=$state');
+    var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.search}?area=${area ?? ''}&max_price=${maxPrice ?? ''}&number_of_rooms=${numberOfRooms ?? ''}&number_of_path_rooms=${numberOfBathRooms ?? ''}&min_price=${minPrice ?? ''}&country=${countryID ?? ''}&state=${state ?? ''}&property_type=${propertyType ?? ''}');
+    print(url.queryParameters);
     var response = await http.get(url, headers: AppUtils.defaultHttpHeaders);
     print(response.body);
     if (response.statusCode == 200) {

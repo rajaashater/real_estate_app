@@ -4,14 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/views/drawer/thank_you_screen.dart';
 
+import '../../models/user_model.dart';
 import '../../utils/theme/app_colors.dart';
 
-class AboutYouScreen extends StatelessWidget {
-   AboutYouScreen({Key? key}) : super(key: key);
+class AboutYouScreen extends StatefulWidget {
+   AboutYouScreen({Key? key, required this.user}) : super(key: key);
+   final UserModel user;
+
+  @override
+  State<AboutYouScreen> createState() => _AboutYouScreenState();
+}
+
+class _AboutYouScreenState extends State<AboutYouScreen> {
   final _formKey = GlobalKey<FormState>();
 
   String? _email;
+
   String? _name;
+
   String? _phone;
 
   @override
@@ -31,8 +41,6 @@ class AboutYouScreen extends StatelessWidget {
               const SizedBox(
                 height: 30.0,
               ),
-
-
               Form(
                 key: _formKey,
                 child: Column(
@@ -47,7 +55,7 @@ class AboutYouScreen extends StatelessWidget {
                       validator: qValidator([
                         IsRequired(),
                       ]),
-                      initialValue: 'Adam',
+                      initialValue: widget.user.name,
                     ),
                     const SizedBox(
                       height: 20.0,
@@ -63,7 +71,7 @@ class AboutYouScreen extends StatelessWidget {
                         IsRequired(),
                         const IsEmail(),
                       ]),
-                      initialValue: 'adam88@gmail.com',
+                      initialValue: widget.user.email,
                     ),
                     const SizedBox(
                       height: 20.0,
@@ -79,7 +87,7 @@ class AboutYouScreen extends StatelessWidget {
                         IsRequired(),
                         MinLength(10),
                       ]),
-                      initialValue: '0988763983',
+                      initialValue: widget.user.phone,
                     ),
                     const SizedBox(
                       height: 20.0,
@@ -95,7 +103,6 @@ class AboutYouScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(builder: (_) => const ThankYouScreen())),
-                  //TODO API request
                   child: Text('continue'.tr(),
                       style: Theme.of(context).textTheme.headline1),
                 ),

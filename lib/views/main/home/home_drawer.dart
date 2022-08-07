@@ -13,6 +13,7 @@ import 'package:real_estate_app/views/drawer/profile_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../main.dart';
+import '../../../models/user_model.dart';
 
 
 class HomeDrawer extends StatelessWidget {
@@ -29,8 +30,7 @@ class HomeDrawer extends StatelessWidget {
           backgroundColor: AppColors.primary,
           child: ListView(
             children: [
-              //TODO replace true with isSignIn variable
-              false ? Column(
+              Column(
                       children: [
                         CircleAvatar(
                           backgroundColor: Colors.white,
@@ -46,15 +46,14 @@ class HomeDrawer extends StatelessWidget {
                           ),
                         )
                       ],
-                    )
-                  : Image.asset(AppConstants.logo, height: 70, width: 70),
+                    ),
               const SizedBox(height: 20.0),
-              if (true) ListTile(
+              ListTile(
                 leading: const Icon(Icons.circle, color: AppColors.secondary),
                 title: Text('profile'.tr(),
                     style: Theme.of(context).textTheme.headline1),
                 onTap: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => ProfileScreen(user: sharedPreferences.getString('user', json.encode(authData.data.user.toJson())),))),
+                  .push(MaterialPageRoute(builder: (_) => ProfileScreen(user: UserModel.fromJson(json.decode(sharedPreferences.getString('user') ?? '{}')),))),
               ),
               ListTile(
                 leading: const Icon(Icons.circle, color: AppColors.secondary),
@@ -118,7 +117,7 @@ class HomeDrawer extends StatelessWidget {
                               color: AppColors.secondary,
                             ),
                             onRatingUpdate: (rating) {
-                              //TODO update rating
+
                             },
                           ),
                           const SizedBox(
@@ -126,7 +125,7 @@ class HomeDrawer extends StatelessWidget {
                           ),
                           ElevatedButton(
                               onPressed: () {
-                                //TODO send request with updating value
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 'submit'.tr(),

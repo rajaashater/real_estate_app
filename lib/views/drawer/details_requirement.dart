@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 
+import '../../main.dart';
+import '../../models/user_model.dart';
 import '../../services/real_estate_service.dart';
 import '../../utils/theme/app_colors.dart';
 import '../../utils/app_constants.dart';
@@ -186,7 +190,7 @@ class DetailsRequirementScreen extends StatelessWidget {
                         ).show();
                       }
                       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => AboutYouScreen()));
+                          MaterialPageRoute(builder: (_) => AboutYouScreen(user: UserModel.fromJson(json.decode(sharedPreferences.getString('user') ?? '{}')),)));
                     }
                   }
                 },

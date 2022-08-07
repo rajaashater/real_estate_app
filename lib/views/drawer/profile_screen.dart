@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/models/user_model.dart';
+import 'package:real_estate_app/utils/app_utils.dart';
 import '../../utils/theme/app_colors.dart';
 import '../components/components.dart';
 import 'change_password.dart';
@@ -26,9 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String? _city;
 
   String? _name;
-
-  String? _lastName;
-
+  
   String? _phone;
 
   @override
@@ -48,7 +47,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   KProfileImage(
                     onImageSelected: (image){
-                     //TODO Practice
                       _image = image;
                     },
                   ),
@@ -80,22 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       validator: qValidator([
                         IsRequired(),
                       ]),
-                      initialValue: 'Adam',
-                    ),
-                    const SizedBox(
-                      height: 20.0,
-                    ),
-                    TextFormField(
-                      onSaved: (value) => _lastName = value,
-                      keyboardType: TextInputType.name,
-                      decoration: InputDecoration(
-                        labelText: 'last_name'.tr(),
-                        prefixIcon: const Icon(Icons.person),
-                      ),
-                      validator: qValidator([
-                        IsRequired(),
-                      ]),
-                      initialValue: 'Moghrabi',
+                      initialValue: widget.user.name,
                     ),
                     const SizedBox(
                       height: 20.0,
@@ -111,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         IsRequired(),
                         const IsEmail(),
                       ]),
-                      initialValue: 'adam88@gmail.com',
+                      initialValue: widget.user.email,
                     ),
                     const SizedBox(
                       height: 20.0,
@@ -127,22 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         IsRequired(),
                         MinLength(10),
                       ]),
-                      initialValue: '0988763983',
-                    ),
-                    const SizedBox(
-                      height: 20.0,
-                    ),
-                    TextFormField(
-                      onSaved: (value) => _city = value,
-                      keyboardType: TextInputType.streetAddress,
-                      decoration: InputDecoration(
-                        labelText: 'city'.tr(),
-                        prefixIcon: const Icon(Icons.location_city),
-                      ),
-                      validator: qValidator([
-                        IsRequired(),
-                      ]),
-                      initialValue: 'paramkeh'.tr(),
+                      initialValue: widget.user.phone,
                     ),
                     const SizedBox(
                       height: 20.0,
@@ -151,6 +119,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               KDropDownButtonFormField<String>(
+                value: 'Female',
                 label: Text('gander'.tr()),
                 items: ['female'.tr(), 'male'.tr()]
                     .map((e) =>
@@ -163,15 +132,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    //TODO API request
                   },
                   child: Text('update_profile'.tr(),
                       style: Theme.of(context).textTheme.headline1),
                 ),
               ),
-
-              //Text('already have account?'.tr(), style:Theme.of(context).textTheme.headline1),
-              //TextButton(onPressed: ()=> Navigator.of(context).pop(MaterialPageRoute(builder:(_) => LoginScreen() )) ,child:Text ('login'.tr()),),
             ],
           ),
         ),

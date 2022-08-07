@@ -19,11 +19,12 @@ class HomeEndDrawer extends StatelessWidget {
   double? _area;
   double? _minPrice;
   double? _maxPrice;
-  // String? _propertyType;
+  String? _propertyType;
   int? _numberOfRooms;
   int? _numberOfBathRooms;
   String? _countryID;
   String? _state;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -63,29 +64,45 @@ class HomeEndDrawer extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Column(
-                children: [
-                  FutureBuilder<ResponseModel<List<CitiesGetModel>>>(
-                    future: CitiesGetService().getCities(),
-                      builder: (BuildContext context, AsyncSnapshot snapshot) {
-                        if (snapshot.hasData) {
-                          return KDropDownButtonFormField<CitiesGetModel>(
-                              label:  Text('select_location'.tr()),
-                              onSaved: (CitiesGetModel? value) => _countryID = value?.id.toString(),
-                              items: (snapshot.data.data as List<CitiesGetModel>).map((CitiesGetModel e) => DropdownMenuItem<CitiesGetModel>(value: e, child: Text(e.country))).toList());
-                        } else {
-                          return Center(
-                            child: CircularProgressIndicator(color: Colors.white),
-                          );
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    FutureBuilder<ResponseModel<List<CitiesGetModel>>>(
+                      future: CitiesGetService().getCities(),
+                        builder: (BuildContext context, AsyncSnapshot snapshot) {
+                          if (snapshot.hasData) {
+                            return KDropDownButtonFormField<CitiesGetModel>(
+                                label:  Text('select_location'.tr()),
+                                onSaved: (CitiesGetModel? value) => _countryID = value?.id.toString(),
+                                items: (snapshot.data.data as List<CitiesGetModel>).map((CitiesGetModel e) => DropdownMenuItem<CitiesGetModel>(value: e, child: Text(e.country))).toList());
+                          } else {
+                            return Center(
+                              child: CircularProgressIndicator(color: Colors.white),
+                            );
+                          }
                         }
-                      }
-                  ),
-                  const SizedBox(height: 20),
-                  KDropDownButtonFormField<String>(
-                    label:  Text('property_type'.tr()),
-                    items: ['type1', 'type2', 'type3'].map((e) => DropdownMenuItem<String>(value: e, child: Text(e))).toList(),
-                  ),
-                ],
+                    ),
+                    const SizedBox(height: 20),
+                    KDropDownButtonFormField(
+                      onSaved: (dynamic value) => _propertyType = value,
+                      label: Text('property_type'.tr()),
+                      items: [
+                        'apartment',
+                        'house',
+                        'duplex',
+                        'land',
+                        'villa',
+                        'hotel',
+                        'office',
+                        'farm'
+                      ]
+                          .map((e) =>
+                          DropdownMenuItem<String>(value: e, child: Text(e)))
+                          .toList(),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 20),
               Row(children: [
@@ -185,7 +202,8 @@ class HomeEndDrawer extends StatelessWidget {
                 height: 35.0,
                 child: ElevatedButton(
                   onPressed: () async {
-                    var SearchData = SearchService().search(area: _area ,minPrice: _minPrice ,maxPrice: _maxPrice, numberOfRooms: _numberOfRooms, numberOfBathRooms: _numberOfBathRooms, countryID: _countryID);
+                    _formKey.currentState?.save();
+                    var SearchData = SearchService().search(area: _area?.round() ,minPrice: _minPrice ,maxPrice: _maxPrice, numberOfRooms: _numberOfRooms, numberOfBathRooms: _numberOfBathRooms, countryID: _countryID, propertyType: _propertyType, state: _state);
                     onSearch(SearchData);
                     Navigator.of(context).pop();
                     },

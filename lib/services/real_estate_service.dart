@@ -41,13 +41,13 @@ class RealEstateService {
     }
   }
 
-  Future<ResponseModel<bool>> deleteRealEstate(int id) async {
+  Future<ResponseModel> deleteRealEstate(int id) async {
     var url = Uri.parse('${AppConstants.baseUrl}${EndPoints.delete_real_estate}/$id');
     var response = await http.delete(url, headers: AppUtils.defaultHttpHeaders);
     print(response.body);
     if (response.statusCode == 200) {
       var parsedJson = json.decode(response.body);
-      return ResponseModel<bool>.fromJson(parsedJson, (data) => data);
+      return ResponseModel.fromJson(parsedJson, (data) => data);
     }
     else {
       throw Exception('Failed');

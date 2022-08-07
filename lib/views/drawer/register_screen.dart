@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:queen_validators/queen_validators.dart';
 import 'package:real_estate_app/utils/app_constants.dart';
+import 'package:real_estate_app/utils/app_utils.dart';
 import 'package:real_estate_app/views/drawer/password_text_from_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -88,12 +89,8 @@ class RegisterScreen extends StatelessWidget {
                         return null;
                       },
                       onSaved: (value) {
-                        String? gender = value;
-                        if(value == 'Female' || value == 'أنثى')
-                          gender = 'female';
-                        if(value == 'Male' || value == 'ذكر')
-                          gender = 'male';
-                        _gender = gender;
+                        if(value != null)
+                        _gender = AppUtils.getGender(value);
                       },
                     ),
                     const SizedBox(
